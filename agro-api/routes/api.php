@@ -19,4 +19,6 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 });
 
 Route::apiResource('pragas', 'PragasController');
+Route::apiResource('culturas', 'CulturasController');
+Route::apiResource('produtos', 'ProdutosController');
 

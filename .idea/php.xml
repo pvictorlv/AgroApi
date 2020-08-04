@@ -107,10 +107,6 @@
       <path value="$PROJECT_DIR$/agro-api/vendor/phenx/php-svg-lib" />
       <path value="$PROJECT_DIR$/agro-api/vendor/phenx/php-font-lib" />
       <path value="$PROJECT_DIR$/agro-api/vendor/symfony/yaml" />
-      <path value="$PROJECT_DIR$/agro-api/vendor/swagger-api/swagger-ui" />
-      <path value="$PROJECT_DIR$/agro-api/vendor/zircote/swagger-php" />
-      <path value="$PROJECT_DIR$/agro-api/vendor/darkaonline/l5-swagger" />
-      <path value="$PROJECT_DIR$/agro-api/vendor/doctrine/annotations" />
       <path value="$PROJECT_DIR$/agro-api/vendor/symfony/polyfill-util" />
       <path value="$PROJECT_DIR$/agro-api/vendor/symfony/polyfill-php56" />
       <path value="$PROJECT_DIR$/agro-api/vendor/tymon/jwt-auth" />

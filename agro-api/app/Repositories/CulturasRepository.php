@@ -3,17 +3,17 @@
 namespace App\Repositories;
 
 
-use App\Models\Praga;
+use App\Models\Cultura;
 use App\Models\Produto;
 use Dotenv\Repository\RepositoryInterface;
 use Illuminate\Database\Eloquent\Model;
 
-class PragasRepository implements Repository
+class CulturasRepository implements Repository
 {
 
-    private Praga $model;
+    private Cultura $model;
 
-    public function __construct(Praga $model)
+    public function __construct(Cultura $model)
     {
         $this->model = $model;
     }
@@ -28,18 +28,18 @@ class PragasRepository implements Repository
         return $this->model->find($id);
     }
 
-    public function pragaExistente(string $nome): bool
+    public function CulturaExistente(string $nome): bool
     {
         return $this->model->where('nome', '=', $nome)->exists();
     }
 
     public function create(array $fields): Model
     {
-        $praga = new Praga();
-        $praga->fill($fields);
-        $praga->save();
+        $Cultura = new Cultura();
+        $Cultura->fill($fields);
+        $Cultura->save();
 
-        return $praga;
+        return $Cultura;
     }
 
     public function update(Model $model, array $fields): Model

@@ -2,11 +2,157 @@
     "variables": [],
     "info": {
         "name": "Laravel API",
-        "_postman_id": "af07ea30-d4aa-488c-8553-7222f4504786",
+        "_postman_id": "490b888d-1893-431d-81c2-4966ceacdd03",
         "description": "",
         "schema": "https:\/\/schema.getpostman.com\/json\/collection\/v2.0.0\/collection.json"
     },
     "item": [
+        {
+            "name": "Culturas",
+            "description": "",
+            "item": [
+                {
+                    "name": "Listar Culturas.",
+                    "request": {
+                        "url": {
+                            "protocol": "http",
+                            "host": "localhost",
+                            "path": "api\/culturas",
+                            "query": []
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "[]"
+                        },
+                        "description": "",
+                        "response": []
+                    }
+                },
+                {
+                    "name": "Criar nova Cultura.",
+                    "request": {
+                        "url": {
+                            "protocol": "http",
+                            "host": "localhost",
+                            "path": "api\/culturas",
+                            "query": []
+                        },
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\n    \"nome\": \"reiciendis\"\n}"
+                        },
+                        "description": "",
+                        "response": []
+                    }
+                },
+                {
+                    "name": "Obter Cultura por ID.",
+                    "request": {
+                        "url": {
+                            "protocol": "http",
+                            "host": "localhost",
+                            "path": "api\/culturas\/:cultura",
+                            "query": []
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "[]"
+                        },
+                        "description": "",
+                        "response": []
+                    }
+                },
+                {
+                    "name": "Editar Cultura.",
+                    "request": {
+                        "url": {
+                            "protocol": "http",
+                            "host": "localhost",
+                            "path": "api\/culturas\/:cultura",
+                            "query": []
+                        },
+                        "method": "PUT",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\n    \"nome\": \"dolore\"\n}"
+                        },
+                        "description": "",
+                        "response": []
+                    }
+                },
+                {
+                    "name": "Deletar Cultura.",
+                    "request": {
+                        "url": {
+                            "protocol": "http",
+                            "host": "localhost",
+                            "path": "api\/culturas\/:cultura",
+                            "query": []
+                        },
+                        "method": "DELETE",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "[]"
+                        },
+                        "description": "",
+                        "response": []
+                    }
+                }
+            ]
+        },
         {
             "name": "Pragas",
             "description": "",
@@ -61,7 +207,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\n    \"nome\": \"ut\"\n}"
+                            "raw": "{\n    \"nome\": \"repellat\"\n}"
                         },
                         "description": "",
                         "response": []
@@ -117,7 +263,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\n    \"nome\": \"numquam\"\n}"
+                            "raw": "{\n    \"nome\": \"architecto\"\n}"
                         },
                         "description": "",
                         "response": []
@@ -154,16 +300,16 @@
             ]
         },
         {
-            "name": "general",
+            "name": "Produtos",
             "description": "",
             "item": [
                 {
-                    "name": "Display Swagger API page.",
+                    "name": "Listar Produtos.",
                     "request": {
                         "url": {
                             "protocol": "http",
                             "host": "localhost",
-                            "path": "api\/documentation",
+                            "path": "api\/produtos",
                             "query": []
                         },
                         "method": "GET",
@@ -186,12 +332,40 @@
                     }
                 },
                 {
-                    "name": "Dump api-docs content endpoint. Supports dumping a json, or yaml file.",
+                    "name": "Criar nova Produto.",
                     "request": {
                         "url": {
                             "protocol": "http",
                             "host": "localhost",
-                            "path": "docs\/:jsonFile",
+                            "path": "api\/produtos",
+                            "query": []
+                        },
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\n    \"nome\": \"et\"\n}"
+                        },
+                        "description": "",
+                        "response": []
+                    }
+                },
+                {
+                    "name": "Obter Produto por ID.",
+                    "request": {
+                        "url": {
+                            "protocol": "http",
+                            "host": "localhost",
+                            "path": "api\/produtos\/:produto",
                             "query": []
                         },
                         "method": "GET",
@@ -214,15 +388,15 @@
                     }
                 },
                 {
-                    "name": "docs\/asset\/{asset}",
+                    "name": "Editar Produto.",
                     "request": {
                         "url": {
                             "protocol": "http",
                             "host": "localhost",
-                            "path": "docs\/asset\/:asset",
+                            "path": "api\/produtos\/:produto",
                             "query": []
                         },
-                        "method": "GET",
+                        "method": "PUT",
                         "header": [
                             {
                                 "key": "Content-Type",
@@ -235,22 +409,22 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "[]"
+                            "raw": "{\n    \"nome\": \"vero\"\n}"
                         },
                         "description": "",
                         "response": []
                     }
                 },
                 {
-                    "name": "Display Oauth2 callback pages.",
+                    "name": "Deletar Produto.",
                     "request": {
                         "url": {
                             "protocol": "http",
                             "host": "localhost",
-                            "path": "api\/oauth2-callback",
+                            "path": "api\/produtos\/:produto",
                             "query": []
                         },
-                        "method": "GET",
+                        "method": "DELETE",
                         "header": [
                             {
                                 "key": "Content-Type",

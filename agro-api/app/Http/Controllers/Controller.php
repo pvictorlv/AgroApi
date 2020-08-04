@@ -43,4 +43,14 @@ class Controller extends BaseController
     {
         return response()->json(['message' => $message], 400);
     }
+
+    protected function conflict(string $message): JsonResponse
+    {
+        return response()->json(['message' => $message], 409);
+    }
+
+    protected function notFound(string $message): JsonResponse
+    {
+        return response()->json(['message' => $message], 404);
+    }
 }

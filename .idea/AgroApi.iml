@@ -7,9 +7,7 @@
       <excludeFolder url="file://$MODULE_DIR$/agro-api/vendor/asm89/stack-cors" />
       <excludeFolder url="file://$MODULE_DIR$/agro-api/vendor/brick/math" />
       <excludeFolder url="file://$MODULE_DIR$/agro-api/vendor/composer" />
-      <excludeFolder url="file://$MODULE_DIR$/agro-api/vendor/darkaonline/l5-swagger" />
       <excludeFolder url="file://$MODULE_DIR$/agro-api/vendor/dnoegel/php-xdg-base-dir" />
-      <excludeFolder url="file://$MODULE_DIR$/agro-api/vendor/doctrine/annotations" />
       <excludeFolder url="file://$MODULE_DIR$/agro-api/vendor/doctrine/inflector" />
       <excludeFolder url="file://$MODULE_DIR$/agro-api/vendor/doctrine/instantiator" />
       <excludeFolder url="file://$MODULE_DIR$/agro-api/vendor/doctrine/lexer" />
@@ -86,7 +84,6 @@
       <excludeFolder url="file://$MODULE_DIR$/agro-api/vendor/sebastian/resource-operations" />
       <excludeFolder url="file://$MODULE_DIR$/agro-api/vendor/sebastian/type" />
       <excludeFolder url="file://$MODULE_DIR$/agro-api/vendor/sebastian/version" />
-      <excludeFolder url="file://$MODULE_DIR$/agro-api/vendor/swagger-api/swagger-ui" />
       <excludeFolder url="file://$MODULE_DIR$/agro-api/vendor/swiftmailer/swiftmailer" />
       <excludeFolder url="file://$MODULE_DIR$/agro-api/vendor/symfony/console" />
       <excludeFolder url="file://$MODULE_DIR$/agro-api/vendor/symfony/css-selector" />
@@ -127,7 +124,6 @@
       <excludeFolder url="file://$MODULE_DIR$/agro-api/vendor/webmozart/assert" />
       <excludeFolder url="file://$MODULE_DIR$/agro-api/vendor/windwalker/renderer" />
       <excludeFolder url="file://$MODULE_DIR$/agro-api/vendor/windwalker/structure" />
-      <excludeFolder url="file://$MODULE_DIR$/agro-api/vendor/zircote/swagger-php" />
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />

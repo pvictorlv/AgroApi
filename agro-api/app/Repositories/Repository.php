@@ -2,7 +2,9 @@
 
 namespace App\Repositories;
 
+use Highlight\Mode;
 use Illuminate\Database\Eloquent\Model;
+use PhpParser\Node\Expr\AssignOp\Mod;
 
 interface Repository
 {
@@ -11,6 +13,7 @@ interface Repository
     public function getById($id): ?Model;
 
     public function create(array $fields): Model;
+    public function update(Model $model, array $fields): Model;
 
-    public function delete($id);
+    public function delete(Model $model) : void;
 }

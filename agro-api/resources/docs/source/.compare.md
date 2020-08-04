@@ -20,6 +20,302 @@ Welcome to the generated API reference.
 
 <!-- END_INFO -->
 
+#Culturas
+
+
+<!-- START_633b68562aecdeb5aeea6c6806f5217d -->
+## Listar Culturas.
+
+<br><small style="padding: 1px 9px 2px;font-weight: bold;white-space: nowrap;color: #ffffff;-webkit-border-radius: 9px;-moz-border-radius: 9px;border-radius: 9px;background-color: #3a87ad;">Requires authentication</small>
+> Example request:
+
+```bash
+curl -X GET \
+    -G "http://localhost/api/culturas" \
+    -H "Content-Type: application/json" \
+    -H "Accept: application/json"
+```
+
+```javascript
+const url = new URL(
+    "http://localhost/api/culturas"
+);
+
+let headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+fetch(url, {
+    method: "GET",
+    headers: headers,
+})
+    .then(response => response.json())
+    .then(json => console.log(json));
+```
+
+
+> Example response (200):
+
+```json
+[
+    {
+        "id": 1,
+        "nome": "Soja",
+        "created_at": "2020-08-03 19:52:31",
+        "updated_at": "2020-08-03 19:52:31"
+    }
+]
+```
+
+### HTTP Request
+`GET api/culturas`
+
+
+<!-- END_633b68562aecdeb5aeea6c6806f5217d -->
+
+<!-- START_af13f3b731c32e748f44c50e27717448 -->
+## Criar nova Cultura.
+
+<br><small style="padding: 1px 9px 2px;font-weight: bold;white-space: nowrap;color: #ffffff;-webkit-border-radius: 9px;-moz-border-radius: 9px;border-radius: 9px;background-color: #3a87ad;">Requires authentication</small>
+> Example request:
+
+```bash
+curl -X POST \
+    "http://localhost/api/culturas" \
+    -H "Content-Type: application/json" \
+    -H "Accept: application/json" \
+    -d '{"nome":"reiciendis"}'
+
+```
+
+```javascript
+const url = new URL(
+    "http://localhost/api/culturas"
+);
+
+let headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+let body = {
+    "nome": "reiciendis"
+}
+
+fetch(url, {
+    method: "POST",
+    headers: headers,
+    body: body
+})
+    .then(response => response.json())
+    .then(json => console.log(json));
+```
+
+
+> Example response (201):
+
+```json
+{
+    "id": 1,
+    "nome": "Soja",
+    "created_at": "2020-08-03 19:52:31",
+    "updated_at": "2020-08-03 19:52:31"
+}
+```
+> Example response (400):
+
+```json
+{
+    "message": "Nome inválido ou muito curto"
+}
+```
+> Example response (409):
+
+```json
+{
+    "message": "Cultura já cadastrada"
+}
+```
+
+### HTTP Request
+`POST api/culturas`
+
+#### Body Parameters
+Parameter | Type | Status | Description
+--------- | ------- | ------- | ------- | -----------
+    `nome` | string |  required  | Nome da Cultura, exemplo: Soja
+    
+<!-- END_af13f3b731c32e748f44c50e27717448 -->
+
+<!-- START_451f05b9de0402496b4d26aea3540a13 -->
+## Obter Cultura por ID.
+
+<br><small style="padding: 1px 9px 2px;font-weight: bold;white-space: nowrap;color: #ffffff;-webkit-border-radius: 9px;-moz-border-radius: 9px;border-radius: 9px;background-color: #3a87ad;">Requires authentication</small>
+> Example request:
+
+```bash
+curl -X GET \
+    -G "http://localhost/api/culturas/1" \
+    -H "Content-Type: application/json" \
+    -H "Accept: application/json"
+```
+
+```javascript
+const url = new URL(
+    "http://localhost/api/culturas/1"
+);
+
+let headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+fetch(url, {
+    method: "GET",
+    headers: headers,
+})
+    .then(response => response.json())
+    .then(json => console.log(json));
+```
+
+
+> Example response (200):
+
+```json
+{
+    "id": 1,
+    "nome": "Soja",
+    "created_at": "2020-08-03 19:52:31",
+    "updated_at": "2020-08-03 19:52:31"
+}
+```
+> Example response (404):
+
+```json
+{
+    "message": "Cultura não encontrada"
+}
+```
+
+### HTTP Request
+`GET api/culturas/{cultura}`
+
+
+<!-- END_451f05b9de0402496b4d26aea3540a13 -->
+
+<!-- START_3fc84a9e54b3d683dc31bf9d3c4c1616 -->
+## Editar Cultura.
+
+<br><small style="padding: 1px 9px 2px;font-weight: bold;white-space: nowrap;color: #ffffff;-webkit-border-radius: 9px;-moz-border-radius: 9px;border-radius: 9px;background-color: #3a87ad;">Requires authentication</small>
+> Example request:
+
+```bash
+curl -X PUT \
+    "http://localhost/api/culturas/1" \
+    -H "Content-Type: application/json" \
+    -H "Accept: application/json" \
+    -d '{"nome":"dolore"}'
+
+```
+
+```javascript
+const url = new URL(
+    "http://localhost/api/culturas/1"
+);
+
+let headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+let body = {
+    "nome": "dolore"
+}
+
+fetch(url, {
+    method: "PUT",
+    headers: headers,
+    body: body
+})
+    .then(response => response.json())
+    .then(json => console.log(json));
+```
+
+
+> Example response (404):
+
+```json
+{
+    "message": "Cultura não encontrada"
+}
+```
+> Example response (400):
+
+```json
+{
+    "message": "Nome inválido ou muito curto"
+}
+```
+
+### HTTP Request
+`PUT api/culturas/{cultura}`
+
+`PATCH api/culturas/{cultura}`
+
+#### Body Parameters
+Parameter | Type | Status | Description
+--------- | ------- | ------- | ------- | -----------
+    `nome` | string |  required  | Nome da Cultura, exemplo: Soja
+    
+<!-- END_3fc84a9e54b3d683dc31bf9d3c4c1616 -->
+
+<!-- START_b0bcafcaf878ed064db1974e2155a620 -->
+## Deletar Cultura.
+
+<br><small style="padding: 1px 9px 2px;font-weight: bold;white-space: nowrap;color: #ffffff;-webkit-border-radius: 9px;-moz-border-radius: 9px;border-radius: 9px;background-color: #3a87ad;">Requires authentication</small>
+> Example request:
+
+```bash
+curl -X DELETE \
+    "http://localhost/api/culturas/1" \
+    -H "Content-Type: application/json" \
+    -H "Accept: application/json"
+```
+
+```javascript
+const url = new URL(
+    "http://localhost/api/culturas/1"
+);
+
+let headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+fetch(url, {
+    method: "DELETE",
+    headers: headers,
+})
+    .then(response => response.json())
+    .then(json => console.log(json));
+```
+
+
+> Example response (404):
+
+```json
+{
+    "message": "Cultura não encontrada"
+}
+```
+
+### HTTP Request
+`DELETE api/culturas/{cultura}`
+
+
+<!-- END_b0bcafcaf878ed064db1974e2155a620 -->
+
 #Pragas
 
 
@@ -85,7 +381,7 @@ curl -X POST \
     "http://localhost/api/pragas" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json" \
-    -d '{"nome":"ut"}'
+    -d '{"nome":"repellat"}'
 
 ```
 
@@ -100,7 +396,7 @@ let headers = {
 };
 
 let body = {
-    "nome": "ut"
+    "nome": "repellat"
 }
 
 fetch(url, {
@@ -113,7 +409,7 @@ fetch(url, {
 ```
 
 
-> Example response (200):
+> Example response (201):
 
 ```json
 {
@@ -127,7 +423,14 @@ fetch(url, {
 
 ```json
 {
-    "message": "Nome inválido"
+    "message": "Nome inválido ou muito curto"
+}
+```
+> Example response (409):
+
+```json
+{
+    "message": "Praga já cadastrada"
 }
 ```
 
@@ -183,6 +486,13 @@ fetch(url, {
     "updated_at": "2020-08-03 19:52:31"
 }
 ```
+> Example response (404):
+
+```json
+{
+    "message": "Praga não encontrada"
+}
+```
 
 ### HTTP Request
 `GET api/pragas/{praga}`
@@ -201,7 +511,7 @@ curl -X PUT \
     "http://localhost/api/pragas/1" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json" \
-    -d '{"nome":"numquam"}'
+    -d '{"nome":"architecto"}'
 
 ```
 
@@ -216,7 +526,7 @@ let headers = {
 };
 
 let body = {
-    "nome": "numquam"
+    "nome": "architecto"
 }
 
 fetch(url, {
@@ -229,6 +539,20 @@ fetch(url, {
 ```
 
 
+> Example response (404):
+
+```json
+{
+    "message": "Praga não encontrada"
+}
+```
+> Example response (400):
+
+```json
+{
+    "message": "Nome inválido ou muito curto"
+}
+```
 
 ### HTTP Request
 `PUT api/pragas/{praga}`
@@ -274,6 +598,13 @@ fetch(url, {
 ```
 
 
+> Example response (404):
+
+```json
+{
+    "message": "Praga não encontrada"
+}
+```
 
 ### HTTP Request
 `DELETE api/pragas/{praga}`
@@ -281,24 +612,25 @@ fetch(url, {
 
 <!-- END_9005679a7b54db73c12989142e872109 -->
 
-#general
+#Produtos
 
 
-<!-- START_f7b7ea397f8939c8bb93e6cab64603ce -->
-## Display Swagger API page.
+<!-- START_6630bf8c7371ddc986b316d1569ba662 -->
+## Listar Produtos.
 
+<br><small style="padding: 1px 9px 2px;font-weight: bold;white-space: nowrap;color: #ffffff;-webkit-border-radius: 9px;-moz-border-radius: 9px;border-radius: 9px;background-color: #3a87ad;">Requires authentication</small>
 > Example request:
 
 ```bash
 curl -X GET \
-    -G "http://localhost/api/documentation" \
+    -G "http://localhost/api/produtos" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json"
 ```
 
 ```javascript
 const url = new URL(
-    "http://localhost/api/documentation"
+    "http://localhost/api/produtos"
 );
 
 let headers = {
@@ -318,30 +650,112 @@ fetch(url, {
 > Example response (200):
 
 ```json
-null
+[
+    {
+        "id": 1,
+        "nome": "Pesticida 1",
+        "created_at": "2020-08-03 19:52:31",
+        "updated_at": "2020-08-03 19:52:31"
+    }
+]
 ```
 
 ### HTTP Request
-`GET api/documentation`
+`GET api/produtos`
 
 
-<!-- END_f7b7ea397f8939c8bb93e6cab64603ce -->
+<!-- END_6630bf8c7371ddc986b316d1569ba662 -->
 
-<!-- START_1ead214f30a5e235e7140eb2aaa29eee -->
-## Dump api-docs content endpoint. Supports dumping a json, or yaml file.
+<!-- START_0b6a7b57412165c2a99f32a9f216ce48 -->
+## Criar nova Produto.
 
+<br><small style="padding: 1px 9px 2px;font-weight: bold;white-space: nowrap;color: #ffffff;-webkit-border-radius: 9px;-moz-border-radius: 9px;border-radius: 9px;background-color: #3a87ad;">Requires authentication</small>
+> Example request:
+
+```bash
+curl -X POST \
+    "http://localhost/api/produtos" \
+    -H "Content-Type: application/json" \
+    -H "Accept: application/json" \
+    -d '{"nome":"et"}'
+
+```
+
+```javascript
+const url = new URL(
+    "http://localhost/api/produtos"
+);
+
+let headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+let body = {
+    "nome": "et"
+}
+
+fetch(url, {
+    method: "POST",
+    headers: headers,
+    body: body
+})
+    .then(response => response.json())
+    .then(json => console.log(json));
+```
+
+
+> Example response (201):
+
+```json
+{
+    "id": 1,
+    "nome": "Pesticida 1",
+    "created_at": "2020-08-03 19:52:31",
+    "updated_at": "2020-08-03 19:52:31"
+}
+```
+> Example response (400):
+
+```json
+{
+    "message": "Nome inválido ou muito curto"
+}
+```
+> Example response (409):
+
+```json
+{
+    "message": "Produto já cadastrado"
+}
+```
+
+### HTTP Request
+`POST api/produtos`
+
+#### Body Parameters
+Parameter | Type | Status | Description
+--------- | ------- | ------- | ------- | -----------
+    `nome` | string |  required  | Nome do Produto, exemplo: Pesticida 1
+    
+<!-- END_0b6a7b57412165c2a99f32a9f216ce48 -->
+
+<!-- START_c6a1f6562011d9a96af2cebdc7846b0a -->
+## Obter Produto por ID.
+
+<br><small style="padding: 1px 9px 2px;font-weight: bold;white-space: nowrap;color: #ffffff;-webkit-border-radius: 9px;-moz-border-radius: 9px;border-radius: 9px;background-color: #3a87ad;">Requires authentication</small>
 > Example request:
 
 ```bash
 curl -X GET \
-    -G "http://localhost/docs/" \
+    -G "http://localhost/api/produtos/1" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json"
 ```
 
 ```javascript
 const url = new URL(
-    "http://localhost/docs/"
+    "http://localhost/api/produtos/1"
 );
 
 let headers = {
@@ -362,121 +776,108 @@ fetch(url, {
 
 ```json
 {
-    "openapi": "3.0.0",
-    "info": {
-        "title": "Laravel OpenApi Demo Documentation",
-        "description": "L5 Swagger OpenApi description",
-        "contact": {
-            "email": "admin@admin.com"
-        },
-        "license": {
-            "name": "Apache 2.0",
-            "url": "http:\/\/www.apache.org\/licenses\/LICENSE-2.0.html"
-        },
-        "version": "1.0.0"
-    },
-    "servers": [
-        {
-            "url": "http:\/\/my-default-host.com",
-            "description": "Demo API Server"
-        }
-    ],
-    "paths": {
-        "\/pragas": {
-            "get": {
-                "tags": [
-                    "Pragas"
-                ],
-                "summary": "Obter lista de pragas",
-                "description": "Retorna uma lista de pragas",
-                "operationId": "getPragas",
-                "responses": {
-                    "200": {
-                        "description": "Successful operation",
-                        "content": {
-                            "application\/json": {
-                                "schema": {
-                                    "$ref": "#\/components\/schemas\/PragaResource"
-                                }
-                            }
-                        }
-                    },
-                    "401": {
-                        "description": "Unauthenticated"
-                    },
-                    "403": {
-                        "description": "Forbidden"
-                    }
-                }
-            }
-        }
-    },
-    "components": {
-        "schemas": {
-            "Praga": {
-                "xml": {
-                    "name": "Praga"
-                }
-            },
-            "PragaResource": {
-                "title": "PragaResource",
-                "description": "Project resource",
-                "properties": {
-                    "data": {
-                        "title": "Dados",
-                        "description": "Lista de pragas",
-                        "type": "array",
-                        "items": {
-                            "$ref": "#\/components\/schemas\/Praga"
-                        }
-                    }
-                },
-                "type": "object",
-                "xml": {
-                    "name": "PragaResource"
-                }
-            }
-        }
-    },
-    "tags": [
-        {
-            "name": "Projects",
-            "description": "API Endpoints of Projects"
-        }
-    ]
+    "id": 1,
+    "nome": "Pesticida 1",
+    "created_at": "2020-08-03 19:52:31",
+    "updated_at": "2020-08-03 19:52:31"
+}
+```
+> Example response (404):
+
+```json
+{
+    "message": "Produto não encontrado"
 }
 ```
 
 ### HTTP Request
-`GET docs/{jsonFile?}`
-
-`POST docs/{jsonFile?}`
-
-`PUT docs/{jsonFile?}`
-
-`PATCH docs/{jsonFile?}`
-
-`DELETE docs/{jsonFile?}`
-
-`OPTIONS docs/{jsonFile?}`
+`GET api/produtos/{produto}`
 
 
-<!-- END_1ead214f30a5e235e7140eb2aaa29eee -->
+<!-- END_c6a1f6562011d9a96af2cebdc7846b0a -->
 
-<!-- START_1a23c1337818a4de9e417863aebaca33 -->
-## docs/asset/{asset}
+<!-- START_5af17273bdd0c838309ebb84106fc95d -->
+## Editar Produto.
+
+<br><small style="padding: 1px 9px 2px;font-weight: bold;white-space: nowrap;color: #ffffff;-webkit-border-radius: 9px;-moz-border-radius: 9px;border-radius: 9px;background-color: #3a87ad;">Requires authentication</small>
 > Example request:
 
 ```bash
-curl -X GET \
-    -G "http://localhost/docs/asset/1" \
+curl -X PUT \
+    "http://localhost/api/produtos/1" \
+    -H "Content-Type: application/json" \
+    -H "Accept: application/json" \
+    -d '{"nome":"vero"}'
+
+```
+
+```javascript
+const url = new URL(
+    "http://localhost/api/produtos/1"
+);
+
+let headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+let body = {
+    "nome": "vero"
+}
+
+fetch(url, {
+    method: "PUT",
+    headers: headers,
+    body: body
+})
+    .then(response => response.json())
+    .then(json => console.log(json));
+```
+
+
+> Example response (404):
+
+```json
+{
+    "message": "Produto não encontrado"
+}
+```
+> Example response (400):
+
+```json
+{
+    "message": "Nome inválido ou muito curto"
+}
+```
+
+### HTTP Request
+`PUT api/produtos/{produto}`
+
+`PATCH api/produtos/{produto}`
+
+#### Body Parameters
+Parameter | Type | Status | Description
+--------- | ------- | ------- | ------- | -----------
+    `nome` | string |  required  | Nome do Produto, exemplo: Pesticida 1
+    
+<!-- END_5af17273bdd0c838309ebb84106fc95d -->
+
+<!-- START_1aaf70b2ab74b451e722d0e98df44623 -->
+## Deletar Produto.
+
+<br><small style="padding: 1px 9px 2px;font-weight: bold;white-space: nowrap;color: #ffffff;-webkit-border-radius: 9px;-moz-border-radius: 9px;border-radius: 9px;background-color: #3a87ad;">Requires authentication</small>
+> Example request:
+
+```bash
+curl -X DELETE \
+    "http://localhost/api/produtos/1" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json"
 ```
 
 ```javascript
 const url = new URL(
-    "http://localhost/docs/asset/1"
+    "http://localhost/api/produtos/1"
 );
 
 let headers = {
@@ -485,7 +886,7 @@ let headers = {
 };
 
 fetch(url, {
-    method: "GET",
+    method: "DELETE",
     headers: headers,
 })
     .then(response => response.json())
@@ -497,57 +898,14 @@ fetch(url, {
 
 ```json
 {
-    "message": "(1) - this L5 Swagger asset is not allowed"
+    "message": "Produto não encontrado"
 }
 ```
 
 ### HTTP Request
-`GET docs/asset/{asset}`
+`DELETE api/produtos/{produto}`
 
 
-<!-- END_1a23c1337818a4de9e417863aebaca33 -->
-
-<!-- START_a2c4ea37605c6d2e3c93b7269030af0a -->
-## Display Oauth2 callback pages.
-
-> Example request:
-
-```bash
-curl -X GET \
-    -G "http://localhost/api/oauth2-callback" \
-    -H "Content-Type: application/json" \
-    -H "Accept: application/json"
-```
-
-```javascript
-const url = new URL(
-    "http://localhost/api/oauth2-callback"
-);
-
-let headers = {
-    "Content-Type": "application/json",
-    "Accept": "application/json",
-};
-
-fetch(url, {
-    method: "GET",
-    headers: headers,
-})
-    .then(response => response.json())
-    .then(json => console.log(json));
-```
-
-
-> Example response (200):
-
-```json
-null
-```
-
-### HTTP Request
-`GET api/oauth2-callback`
-
-
-<!-- END_a2c4ea37605c6d2e3c93b7269030af0a -->
+<!-- END_1aaf70b2ab74b451e722d0e98df44623 -->
 
 
