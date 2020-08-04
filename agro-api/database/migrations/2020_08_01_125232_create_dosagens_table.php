@@ -15,10 +15,29 @@ class CreateDosagensTable extends Migration
     {
         Schema::create('dosagens', function (Blueprint $table) {
             $table->id()->unsigned();
-            $table->integer('cultura_id')->unsigned();
-            $table->integer('praga_id')->unsigned();
-            $table->integer('produto_id')->unsigned();
-            $table->string('quantidade', 120);
+            $table->bigInteger('cultura_id')->unsigned();
+            $table->bigInteger('praga_id')->unsigned();
+            $table->bigInteger('produto_id')->unsigned();
+
+            $table->foreign('cultura_id')
+                ->references('id')
+                ->on('culturas')
+                ->onDelete('cascade');
+
+            $table->foreign('praga_id')
+                ->references('id')
+                ->on('pragas')
+                ->onDelete('cascade');
+
+            $table->foreign('produto_id')
+                ->references('id')
+                ->on('produtos')
+                ->onDelete('cascade');
+
+            $table->string('dosagem', 120);
+
+            $table->unique(['cultura_id', 'praga_id', 'produto_id', 'dosagem']);
+
             $table->timestamps();
         });
     }

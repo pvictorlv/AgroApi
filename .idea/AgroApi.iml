@@ -7,10 +7,13 @@
       <excludeFolder url="file://$MODULE_DIR$/agro-api/vendor/asm89/stack-cors" />
       <excludeFolder url="file://$MODULE_DIR$/agro-api/vendor/brick/math" />
       <excludeFolder url="file://$MODULE_DIR$/agro-api/vendor/composer" />
+      <excludeFolder url="file://$MODULE_DIR$/agro-api/vendor/darkaonline/l5-swagger" />
       <excludeFolder url="file://$MODULE_DIR$/agro-api/vendor/dnoegel/php-xdg-base-dir" />
+      <excludeFolder url="file://$MODULE_DIR$/agro-api/vendor/doctrine/annotations" />
       <excludeFolder url="file://$MODULE_DIR$/agro-api/vendor/doctrine/inflector" />
       <excludeFolder url="file://$MODULE_DIR$/agro-api/vendor/doctrine/instantiator" />
       <excludeFolder url="file://$MODULE_DIR$/agro-api/vendor/doctrine/lexer" />
+      <excludeFolder url="file://$MODULE_DIR$/agro-api/vendor/dompdf/dompdf" />
       <excludeFolder url="file://$MODULE_DIR$/agro-api/vendor/dragonmantank/cron-expression" />
       <excludeFolder url="file://$MODULE_DIR$/agro-api/vendor/egulias/email-validator" />
       <excludeFolder url="file://$MODULE_DIR$/agro-api/vendor/facade/flare-client-php" />
@@ -26,11 +29,13 @@
       <excludeFolder url="file://$MODULE_DIR$/agro-api/vendor/hamcrest/hamcrest-php" />
       <excludeFolder url="file://$MODULE_DIR$/agro-api/vendor/laravel/framework" />
       <excludeFolder url="file://$MODULE_DIR$/agro-api/vendor/laravel/tinker" />
+      <excludeFolder url="file://$MODULE_DIR$/agro-api/vendor/lcobucci/jwt" />
       <excludeFolder url="file://$MODULE_DIR$/agro-api/vendor/league/commonmark" />
       <excludeFolder url="file://$MODULE_DIR$/agro-api/vendor/league/flysystem" />
       <excludeFolder url="file://$MODULE_DIR$/agro-api/vendor/mockery/mockery" />
       <excludeFolder url="file://$MODULE_DIR$/agro-api/vendor/monolog/monolog" />
       <excludeFolder url="file://$MODULE_DIR$/agro-api/vendor/myclabs/deep-copy" />
+      <excludeFolder url="file://$MODULE_DIR$/agro-api/vendor/namshi/jose" />
       <excludeFolder url="file://$MODULE_DIR$/agro-api/vendor/nesbot/carbon" />
       <excludeFolder url="file://$MODULE_DIR$/agro-api/vendor/nikic/php-parser" />
       <excludeFolder url="file://$MODULE_DIR$/agro-api/vendor/nunomaduro/collision" />
@@ -38,6 +43,8 @@
       <excludeFolder url="file://$MODULE_DIR$/agro-api/vendor/paragonie/random_compat" />
       <excludeFolder url="file://$MODULE_DIR$/agro-api/vendor/phar-io/manifest" />
       <excludeFolder url="file://$MODULE_DIR$/agro-api/vendor/phar-io/version" />
+      <excludeFolder url="file://$MODULE_DIR$/agro-api/vendor/phenx/php-font-lib" />
+      <excludeFolder url="file://$MODULE_DIR$/agro-api/vendor/phenx/php-svg-lib" />
       <excludeFolder url="file://$MODULE_DIR$/agro-api/vendor/phpdocumentor/reflection-common" />
       <excludeFolder url="file://$MODULE_DIR$/agro-api/vendor/phpdocumentor/reflection-docblock" />
       <excludeFolder url="file://$MODULE_DIR$/agro-api/vendor/phpdocumentor/type-resolver" />
@@ -58,6 +65,7 @@
       <excludeFolder url="file://$MODULE_DIR$/agro-api/vendor/ralouphie/getallheaders" />
       <excludeFolder url="file://$MODULE_DIR$/agro-api/vendor/ramsey/collection" />
       <excludeFolder url="file://$MODULE_DIR$/agro-api/vendor/ramsey/uuid" />
+      <excludeFolder url="file://$MODULE_DIR$/agro-api/vendor/sabberworm/php-css-parser" />
       <excludeFolder url="file://$MODULE_DIR$/agro-api/vendor/scrivo/highlight.php" />
       <excludeFolder url="file://$MODULE_DIR$/agro-api/vendor/sebastian/code-unit-reverse-lookup" />
       <excludeFolder url="file://$MODULE_DIR$/agro-api/vendor/sebastian/comparator" />
@@ -71,6 +79,7 @@
       <excludeFolder url="file://$MODULE_DIR$/agro-api/vendor/sebastian/resource-operations" />
       <excludeFolder url="file://$MODULE_DIR$/agro-api/vendor/sebastian/type" />
       <excludeFolder url="file://$MODULE_DIR$/agro-api/vendor/sebastian/version" />
+      <excludeFolder url="file://$MODULE_DIR$/agro-api/vendor/swagger-api/swagger-ui" />
       <excludeFolder url="file://$MODULE_DIR$/agro-api/vendor/swiftmailer/swiftmailer" />
       <excludeFolder url="file://$MODULE_DIR$/agro-api/vendor/symfony/console" />
       <excludeFolder url="file://$MODULE_DIR$/agro-api/vendor/symfony/css-selector" />
@@ -88,10 +97,12 @@
       <excludeFolder url="file://$MODULE_DIR$/agro-api/vendor/symfony/polyfill-intl-idn" />
       <excludeFolder url="file://$MODULE_DIR$/agro-api/vendor/symfony/polyfill-intl-normalizer" />
       <excludeFolder url="file://$MODULE_DIR$/agro-api/vendor/symfony/polyfill-mbstring" />
+      <excludeFolder url="file://$MODULE_DIR$/agro-api/vendor/symfony/polyfill-php56" />
       <excludeFolder url="file://$MODULE_DIR$/agro-api/vendor/symfony/polyfill-php70" />
       <excludeFolder url="file://$MODULE_DIR$/agro-api/vendor/symfony/polyfill-php72" />
       <excludeFolder url="file://$MODULE_DIR$/agro-api/vendor/symfony/polyfill-php73" />
       <excludeFolder url="file://$MODULE_DIR$/agro-api/vendor/symfony/polyfill-php80" />
+      <excludeFolder url="file://$MODULE_DIR$/agro-api/vendor/symfony/polyfill-util" />
       <excludeFolder url="file://$MODULE_DIR$/agro-api/vendor/symfony/process" />
       <excludeFolder url="file://$MODULE_DIR$/agro-api/vendor/symfony/routing" />
       <excludeFolder url="file://$MODULE_DIR$/agro-api/vendor/symfony/service-contracts" />
@@ -99,11 +110,14 @@
       <excludeFolder url="file://$MODULE_DIR$/agro-api/vendor/symfony/translation" />
       <excludeFolder url="file://$MODULE_DIR$/agro-api/vendor/symfony/translation-contracts" />
       <excludeFolder url="file://$MODULE_DIR$/agro-api/vendor/symfony/var-dumper" />
+      <excludeFolder url="file://$MODULE_DIR$/agro-api/vendor/symfony/yaml" />
       <excludeFolder url="file://$MODULE_DIR$/agro-api/vendor/theseer/tokenizer" />
       <excludeFolder url="file://$MODULE_DIR$/agro-api/vendor/tijsverkoyen/css-to-inline-styles" />
+      <excludeFolder url="file://$MODULE_DIR$/agro-api/vendor/tymon/jwt-auth" />
       <excludeFolder url="file://$MODULE_DIR$/agro-api/vendor/vlucas/phpdotenv" />
       <excludeFolder url="file://$MODULE_DIR$/agro-api/vendor/voku/portable-ascii" />
       <excludeFolder url="file://$MODULE_DIR$/agro-api/vendor/webmozart/assert" />
+      <excludeFolder url="file://$MODULE_DIR$/agro-api/vendor/zircote/swagger-php" />
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />

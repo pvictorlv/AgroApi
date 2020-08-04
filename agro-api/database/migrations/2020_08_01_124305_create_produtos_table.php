@@ -17,7 +17,6 @@ class CreateProdutosTable extends Migration
             $table->id()->unsigned();
             $table->string('nome');
             $table->timestamps();
-            $table->softDeletes();
         });
     }
 
