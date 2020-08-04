@@ -10,7 +10,7 @@ class CulturasSeeder extends Seeder
      *
      * @return void
      */
-    public function run()
+    public function run(): void
     {
         $culturas = ['Arroz', 'Milho', 'Soja', 'Trigo'];
         foreach ($culturas as $cultura) {

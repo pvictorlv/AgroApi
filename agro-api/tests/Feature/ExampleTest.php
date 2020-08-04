@@ -14,8 +14,7 @@ class ExampleTest extends TestCase
      */
     public function testBasicTest()
     {
-        $response = $this->get('/');
-
+        $response = $this->post('/api/auth');
         $response->assertStatus(200);
     }
 }

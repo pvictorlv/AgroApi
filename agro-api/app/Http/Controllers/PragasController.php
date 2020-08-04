@@ -11,7 +11,7 @@ use Illuminate\Http\Response;
 /**
  * @group Pragas
  * @authenticated
- *  Gerenciamento de pragas.
+ * Gerenciamento de pragas.
  */
 class PragasController extends Controller
 {
@@ -130,10 +130,13 @@ class PragasController extends Controller
      * @response  404 {
      *  "message": "Praga não encontrada"
      * }
+     * @response  200 {
+     *  "message": "Deletado com sucesso"
+     * }
      * @param int $id
-     * @return JsonResponse|Response
+     * @return JsonResponse
      */
-    public function destroy($id)
+    public function destroy($id): JsonResponse
     {
         $praga = $this->repository->getById($id);
         if ($praga == null) {
@@ -142,6 +145,6 @@ class PragasController extends Controller
 
         $this->repository->delete($praga);
 
-        return response()->setStatusCode(204);
+        return response()->json(['message' => 'Deletado com sucesso!']);
     }
 }

@@ -11,7 +11,7 @@ use Illuminate\Http\Response;
 /**
  * @group Culturas
  * @authenticated
- *  Gerenciamento de Culturas.
+ * Gerenciamento de Culturas.
  */
 class CulturasController extends Controller
 {
@@ -68,9 +68,9 @@ class CulturasController extends Controller
             return $this->conflict('Cultura já existente');
         }
 
-        $Cultura = $this->repository->create(['nome' => $nome]);
+        $cultura = $this->repository->create(['nome' => $nome]);
 
-        return response()->json($Cultura, 201);
+        return response()->json($cultura, 201);
     }
 
     /**
@@ -89,11 +89,11 @@ class CulturasController extends Controller
      */
     public function show($id): JsonResponse
     {
-        $Cultura = $this->repository->getById($id);
-        if ($Cultura == null)
+        $cultura = $this->repository->getById($id);
+        if ($cultura == null)
             return $this->notFound('Cultura não encontrada');
 
-        return response()->json($Cultura);
+        return response()->json($cultura);
     }
 
     /**
@@ -105,23 +105,29 @@ class CulturasController extends Controller
      * @response  400 {
      *  "message": "Nome inválido ou muito curto"
      * }
+     * @response  {
+     *  "id": 1,
+     *  "nome": "Soja",
+     *  "created_at": "2020-08-03 19:52:31",
+     *  "updated_at": "2020-08-03 19:52:31"
+     * }
      * @param Request $request
      * @param int $id
      * @return JsonResponse
      */
     public function update(Request $request, $id): JsonResponse
     {
-        $Cultura = $this->repository->getById($id);
-        if ($Cultura == null) {
+        $cultura = $this->repository->getById($id);
+        if ($cultura == null) {
             return $this->notFound('Cultura não encontrada!');
         }
         $nome = $request->get('nome');
         if (!$nome || strlen($nome) < 3)
             return $this->badRequest('Nome inválido ou muito curto');
 
-        $this->repository->update($Cultura, ['nome' => $nome]);
+        $this->repository->update($cultura, ['nome' => $nome]);
 
-        return response()->json($Cultura, 200);
+        return response()->json($cultura);
     }
 
 
@@ -130,18 +136,21 @@ class CulturasController extends Controller
      * @response  404 {
      *  "message": "Cultura não encontrada"
      * }
+     * @response  200 {
+     *  "message": "Deletado com sucesso"
+     * }
      * @param int $id
-     * @return JsonResponse|Response
+     * @return JsonResponse
      */
-    public function destroy($id)
+    public function destroy($id): JsonResponse
     {
-        $Cultura = $this->repository->getById($id);
-        if ($Cultura == null) {
+        $cultura = $this->repository->getById($id);
+        if ($cultura == null) {
             return $this->notFound('Cultura não encontrada!');
         }
 
-        $this->repository->delete($Cultura);
+        $this->repository->delete($cultura);
 
-        return response()->setStatusCode(204);
+        return response()->json(['message' => 'Deletado com sucesso!']);
     }
 }

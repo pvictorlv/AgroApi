@@ -11,7 +11,7 @@ use Illuminate\Http\Response;
 /**
  * @group Produtos
  * @authenticated
- *  Gerenciamento de Produtos.
+ * Gerenciamento de Produtos.
  */
 class ProdutosController extends Controller
 {
@@ -40,7 +40,7 @@ class ProdutosController extends Controller
     }
 
     /**
-     * Criar nova Produto.
+     * Criar novo Produto.
      * @bodyParam nome string required Nome do Produto, exemplo: Pesticida 1
      * @param Request $request
      * @response 201 {
@@ -130,10 +130,13 @@ class ProdutosController extends Controller
      * @response  404 {
      *  "message": "Produto não encontrado"
      * }
+     * @response  200 {
+     *  "message": "Deletado com sucesso"
+     * }
      * @param int $id
-     * @return JsonResponse|Response
+     * @return JsonResponse
      */
-    public function destroy($id)
+    public function destroy($id): JsonResponse
     {
         $produto = $this->repository->getById($id);
         if ($produto == null) {
@@ -142,6 +145,6 @@ class ProdutosController extends Controller
 
         $this->repository->delete($produto);
 
-        return response()->setStatusCode(204);
+        return response()->json(['message' => 'Deletado com sucesso!']);
     }
 }

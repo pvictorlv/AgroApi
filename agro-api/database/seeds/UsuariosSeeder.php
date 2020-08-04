@@ -9,8 +9,8 @@ class UsuariosSeeder extends Seeder
      *
      * @return void
      */
-    public function run()
+    public function run(): void
     {
-        //
+        factory(App\Models\Usuario::class, 5)->create();
     }
 }

@@ -10,7 +10,7 @@ class PragasSeeder extends Seeder
      *
      * @return void
      */
-    public function run()
+    public function run(): void
     {
         $pragas = ['Insetos', 'Fungos', 'Ervas Daninhas'];
         foreach ($pragas as $praga) {

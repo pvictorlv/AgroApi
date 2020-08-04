@@ -10,7 +10,7 @@ class ProdutosSeeder extends Seeder
      *
      * @return void
      */
-    public function run()
+    public function run(): void
     {
         $produtos = ['IMUNIT', 'Opera', 'Basagran 600'];
         foreach ($produtos as $produto) {

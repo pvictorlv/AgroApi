@@ -15,6 +15,13 @@ class Usuario extends Authenticatable implements JWTSubject
 {
     use Notifiable;
 
+    protected $table = 'usuarios';
+
+    public function getAuthPassword()
+    {
+        return $this->senha;
+    }
+
     /**
      * The attributes that are mass assignable.
      *
@@ -52,7 +59,8 @@ class Usuario extends Authenticatable implements JWTSubject
     public function getJWTCustomClaims()
     {
         return [
-            'email' => $this->email
+            'email' => $this->email,
+            'id' => $this->id
         ];
     }
 }

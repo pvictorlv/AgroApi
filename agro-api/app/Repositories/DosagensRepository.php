@@ -3,15 +3,16 @@
 namespace App\Repositories;
 
 
+use App\Models\Dosagem;
 use App\Models\Produto;
+use Dotenv\Repository\RepositoryInterface;
 use Illuminate\Database\Eloquent\Model;
 
-class ProdutosRepository implements Repository
+class DosagensRepository implements Repository
 {
+    private Dosagem $model;
 
-    private Produto $model;
-
-    public function __construct(Produto $model)
+    public function __construct(Dosagem $model)
     {
         $this->model = $model;
     }
@@ -26,18 +27,19 @@ class ProdutosRepository implements Repository
         return $this->model->find($id);
     }
 
-    public function ProdutoExistente(string $nome): bool
+    public function DosagemExistente(string $nome): bool
     {
+        //todo
         return $this->model->where('nome', '=', $nome)->exists();
     }
 
     public function create(array $fields): Model
     {
-        $produto = new Produto();
-        $produto->fill($fields);
-        $produto->save();
+        $dosagem = new Dosagem();
+        $dosagem->fill($fields);
+        $dosagem->save();
 
-        return $produto;
+        return $dosagem;
     }
 
     public function update(Model $model, array $fields): Model

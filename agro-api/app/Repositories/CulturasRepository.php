@@ -35,11 +35,11 @@ class CulturasRepository implements Repository
 
     public function create(array $fields): Model
     {
-        $Cultura = new Cultura();
-        $Cultura->fill($fields);
-        $Cultura->save();
+        $cultura = new Cultura();
+        $cultura->fill($fields);
+        $cultura->save();
 
-        return $Cultura;
+        return $cultura;
     }
 
     public function update(Model $model, array $fields): Model
