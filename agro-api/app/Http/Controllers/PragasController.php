@@ -8,6 +8,11 @@ use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 
+/**
+ * @group Pragas
+ * @authenticated
+ *  Gerenciamento de pragas.
+ */
 class PragasController extends Controller
 {
     private PragasRepository $repository;
@@ -21,31 +26,13 @@ class PragasController extends Controller
 
 
     /**
-     * @OA\Get(
-     *      path="/pragas",
-     *      operationId="getPragas",
-     *      tags={"Pragas"},
-     *      summary="Obter lista de pragas",
-     *      description="Retorna uma lista de pragas",
-     *      @OA\Response(
-     *          response=200,
-     *          description="Successful operation",
-     *          @OA\JsonContent(ref="#/components/schemas/PragaResource")
-     *       ),
-     *      @OA\Response(
-     *          response=401,
-     *          description="Unauthenticated",
-     *      ),
-     *      @OA\Response(
-     *          response=403,
-     *          description="Forbidden"
-     *      )
-     *     )
-     */
-    /**
-     * Display a listing of the resource.
-     *
-     * @param PragasRepository $repository
+     * Listar pragas.
+     * @response  [{
+     *  "id": 1,
+     *  "nome": "Erva Daninha",
+     *  "created_at": "2020-08-03 19:52:31",
+     *  "updated_at": "2020-08-03 19:52:31"
+     * }]
      * @return JsonResponse
      */
     public function index(): JsonResponse
@@ -54,9 +41,18 @@ class PragasController extends Controller
     }
 
     /**
-     * Store a newly created resource in storage.
-     *
+     * Criar nova praga.
+     * @bodyParam nome string required Nome da praga, exemplo: Erva Daninha
      * @param Request $request
+     * @response  {
+     *  "id": 1,
+     *  "nome": "Erva Daninha",
+     *  "created_at": "2020-08-03 19:52:31",
+     *  "updated_at": "2020-08-03 19:52:31"
+     * }
+     * @response  400 {
+     *  "message": "Nome inválido"
+     * }
      * @return JsonResponse
      */
     public function store(Request $request): JsonResponse
@@ -71,8 +67,13 @@ class PragasController extends Controller
     }
 
     /**
-     * Display the specified resource.
-     *
+     * Obter praga por ID.
+     * @response  {
+     *  "id": 1,
+     *  "nome": "Erva Daninha",
+     *  "created_at": "2020-08-03 19:52:31",
+     *  "updated_at": "2020-08-03 19:52:31"
+     * }
      * @param int $id
      * @return JsonResponse
      */
@@ -86,8 +87,8 @@ class PragasController extends Controller
     }
 
     /**
-     * Update the specified resource in storage.
-     *
+     * Editar praga.
+     * @bodyParam nome string required Nome da praga, exemplo: Erva Daninha
      * @param Request $request
      * @param int $id
      * @return JsonResponse
@@ -98,10 +99,8 @@ class PragasController extends Controller
     }
 
 
-
     /**
-     * Remove the specified resource from storage.
-     *
+     * Deletar praga.
      * @param int $id
      * @return Response
      */
