@@ -18,12 +18,12 @@ class CreateTest extends TestCase
 
         $baseUrl = Config::get('app.url') . '/api/dosagens?token=' . $token;
 
-        $response = $this->json('POST', $baseUrl, ['praga' => 1, 'cultura' => 1, 'produto' => 1, 'dosagem' => uniqid('rand-', true)]);
+        $response = $this->json('POST', $baseUrl, ['praga' => 2, 'cultura' => 2, 'produto' => 2, 'dosagem' => uniqid('rand-', true)]);
         $response->assertStatus(201);
 
         $baseUrl = Config::get('app.url') . '/api/dosagens/' . $response->decodeResponseJson('id') . '?token=' . $token;
 
-        $response = $this->json('PUT', $baseUrl, ['praga' => 1, 'cultura' => 1, 'produto' => 1, 'dosagem' => uniqid('rand-', true)]);
+        $response = $this->json('PUT', $baseUrl, ['praga' => 2, 'cultura' => 2, 'produto' => 1, 'dosagem' => uniqid('rand-', true)]);
         $response->assertStatus(200);
 
         $response = $this->json('DELETE', $baseUrl, []);
