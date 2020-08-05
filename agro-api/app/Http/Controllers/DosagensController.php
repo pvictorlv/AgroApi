@@ -12,6 +12,7 @@ use Illuminate\Support\Facades\App;
 use Illuminate\Support\Facades\Hash;
 use PDF;
 use Psy\Util\Json;
+use Sabberworm\CSS\Rule\Rule;
 
 /**
  * @group Dosagens
@@ -105,6 +106,11 @@ class DosagensController extends Controller
 
         if ($validator->fails()) {
             return response()->json($validator->errors()->toJson(), 400);
+        }
+
+        $dosagem = $this->repository->search($request->produto, $request->cultura, $request->praga);
+        if ($dosagem != null && $dosagem->isNotEmpty()) {
+            return response()->json(['dosagem' => ['Você só pode ter uma dosagem por combinação de produto, cultura e praga']], 400);
         }
 
         $dosagem = $this->repository->create(
