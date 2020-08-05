@@ -36,7 +36,7 @@ class CreateDosagensTable extends Migration
 
             $table->string('dosagem', 120);
 
-            $table->unique(['cultura_id', 'praga_id', 'produto_id', 'dosagem']);
+            $table->unique(['cultura_id', 'praga_id', 'produto_id']);
 
             $table->timestamps();
         });

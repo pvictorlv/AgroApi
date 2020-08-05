@@ -48,7 +48,7 @@ class DosagensRepository implements Repository
 
     public function create(array $fields): Model
     {
-        return $this->model->firstOrNew($fields);
+        return $this->model->firstOrCreate($fields);
     }
 
     public function update($id, array $fields): Model

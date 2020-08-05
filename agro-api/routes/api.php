@@ -23,6 +23,7 @@ Route::group(['middleware' => 'api', 'prefix' => 'auth'], static function () {
 });
 
 Route::apiResource('culturas', 'CulturasController');
+Route::apiResource('pragas', 'PragasController');
 Route::apiResource('produtos', 'ProdutosController');
 Route::apiResource('produtos', 'ProdutosController');
 Route::get('/dosagens/pdf', 'DosagensController@exportPdf');

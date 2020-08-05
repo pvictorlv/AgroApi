@@ -86,7 +86,7 @@ class DosagensController extends Controller
      * "updated_at": "2020-08-05T02:54:16.000000Z"
      * }
      *
-     * @response  400 {
+     * @response 400 {
      * "praga":["praga não encontrada."],
      * "cultura":["cultura não encontrada."],
      * "produto":["produto não encontrada."],
@@ -147,7 +147,10 @@ class DosagensController extends Controller
 
     /**
      * Atualizar dosagem.
-     *
+     * @bodyParam dosagem string required Dosagem, exemplo: 100ml por litro
+     * @bodyParam cultura int required ID da cultura, exemplo: 1
+     * @bodyParam produto int required ID do produto, exemplo: 2
+     * @bodyParam praga int required ID da praga, exemplo: 1
      * @param Request $request
      * @param int $id
      * @return Response
@@ -155,7 +158,7 @@ class DosagensController extends Controller
     public function update(Request $request, $id)
     {
         $validator = validator()->make($request->all(), [
-            'dosagem' => 'required|string|exists:dosagens,id',
+            'dosagem' => 'required|string',
             'cultura' => 'required|exists:culturas,id',
             'praga' => 'required|exists:pragas,id',
             'produto' => 'required|exists:produtos,id',

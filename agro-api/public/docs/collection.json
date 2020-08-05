@@ -2,7 +2,7 @@
     "variables": [],
     "info": {
         "name": "Laravel API",
-        "_postman_id": "da27987a-f45e-4fef-bdfd-5de69dcfd8f2",
+        "_postman_id": "26147e94-2a97-485f-8f62-8a4cf4ed3b21",
         "description": "",
         "schema": "https:\/\/schema.getpostman.com\/json\/collection\/v2.0.0\/collection.json"
     },
@@ -33,7 +33,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\n    \"email\": \"sequi\",\n    \"senha\": \"consequatur\"\n}"
+                            "raw": "{\n    \"email\": \"vero\",\n    \"senha\": \"praesentium\"\n}"
                         },
                         "description": "",
                         "response": []
@@ -89,7 +89,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\n    \"nome\": \"aut\",\n    \"email\": \"dolores\",\n    \"senha\": \"alias\"\n}"
+                            "raw": "{\n    \"nome\": \"atque\",\n    \"email\": \"repellendus\",\n    \"senha\": \"dolor\"\n}"
                         },
                         "description": "",
                         "response": []
@@ -207,7 +207,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\n    \"nome\": \"ut\"\n}"
+                            "raw": "{\n    \"nome\": \"mollitia\"\n}"
                         },
                         "description": "",
                         "response": []
@@ -263,7 +263,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\n    \"nome\": \"fugiat\"\n}"
+                            "raw": "{\n    \"nome\": \"eaque\"\n}"
                         },
                         "description": "",
                         "response": []
@@ -313,19 +313,19 @@
                             "query": [
                                 {
                                     "key": "cultura",
-                                    "value": "nihil",
+                                    "value": "laborum",
                                     "description": "int ID da cultura, exemplo: 1",
                                     "disabled": false
                                 },
                                 {
                                     "key": "produto",
-                                    "value": "hic",
+                                    "value": "et",
                                     "description": "int ID do produto, exemplo: 2",
                                     "disabled": false
                                 },
                                 {
                                     "key": "praga",
-                                    "value": "non",
+                                    "value": "atque",
                                     "description": "int ID da praga, exemplo: 1",
                                     "disabled": false
                                 }
@@ -360,19 +360,19 @@
                             "query": [
                                 {
                                     "key": "cultura",
-                                    "value": "voluptatem",
+                                    "value": "tempora",
                                     "description": "int ID da cultura, exemplo: 1",
                                     "disabled": false
                                 },
                                 {
                                     "key": "produto",
-                                    "value": "quia",
+                                    "value": "voluptatem",
                                     "description": "int ID do produto, exemplo: 2",
                                     "disabled": false
                                 },
                                 {
                                     "key": "praga",
-                                    "value": "et",
+                                    "value": "possimus",
                                     "description": "int ID da praga, exemplo: 1",
                                     "disabled": false
                                 }
@@ -419,7 +419,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\n    \"dosagem\": \"ad\",\n    \"cultura\": 16,\n    \"produto\": 11,\n    \"praga\": 13\n}"
+                            "raw": "{\n    \"dosagem\": \"dolorem\",\n    \"cultura\": 10,\n    \"produto\": 1,\n    \"praga\": 2\n}"
                         },
                         "description": "",
                         "response": []
@@ -512,6 +512,152 @@
             ]
         },
         {
+            "name": "Pragas",
+            "description": "",
+            "item": [
+                {
+                    "name": "Listar pragas.",
+                    "request": {
+                        "url": {
+                            "protocol": "http",
+                            "host": "localhost:8082",
+                            "path": "api\/pragas",
+                            "query": []
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "[]"
+                        },
+                        "description": "",
+                        "response": []
+                    }
+                },
+                {
+                    "name": "Criar nova praga.",
+                    "request": {
+                        "url": {
+                            "protocol": "http",
+                            "host": "localhost:8082",
+                            "path": "api\/pragas",
+                            "query": []
+                        },
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\n    \"nome\": \"sapiente\"\n}"
+                        },
+                        "description": "",
+                        "response": []
+                    }
+                },
+                {
+                    "name": "Obter praga por ID.",
+                    "request": {
+                        "url": {
+                            "protocol": "http",
+                            "host": "localhost:8082",
+                            "path": "api\/pragas\/:praga",
+                            "query": []
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "[]"
+                        },
+                        "description": "",
+                        "response": []
+                    }
+                },
+                {
+                    "name": "Editar praga.",
+                    "request": {
+                        "url": {
+                            "protocol": "http",
+                            "host": "localhost:8082",
+                            "path": "api\/pragas\/:praga",
+                            "query": []
+                        },
+                        "method": "PUT",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\n    \"nome\": \"necessitatibus\"\n}"
+                        },
+                        "description": "",
+                        "response": []
+                    }
+                },
+                {
+                    "name": "Deletar praga.",
+                    "request": {
+                        "url": {
+                            "protocol": "http",
+                            "host": "localhost:8082",
+                            "path": "api\/pragas\/:praga",
+                            "query": []
+                        },
+                        "method": "DELETE",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "[]"
+                        },
+                        "description": "",
+                        "response": []
+                    }
+                }
+            ]
+        },
+        {
             "name": "Produtos",
             "description": "",
             "item": [
@@ -565,7 +711,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\n    \"nome\": \"veniam\"\n}"
+                            "raw": "{\n    \"nome\": \"laborum\"\n}"
                         },
                         "description": "",
                         "response": []
@@ -621,7 +767,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\n    \"nome\": \"beatae\"\n}"
+                            "raw": "{\n    \"nome\": \"odio\"\n}"
                         },
                         "description": "",
                         "response": []

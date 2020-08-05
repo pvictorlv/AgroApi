@@ -5,6 +5,7 @@
       <sourceFolder url="file://$MODULE_DIR$/agro-api/tests" isTestSource="true" packagePrefix="Tests\" />
       <sourceFolder url="file://$MODULE_DIR$/agro-api/app" isTestSource="false" packagePrefix="App\" />
       <excludeFolder url="file://$MODULE_DIR$/agro-api/vendor/asm89/stack-cors" />
+      <excludeFolder url="file://$MODULE_DIR$/agro-api/vendor/barryvdh/laravel-dompdf" />
       <excludeFolder url="file://$MODULE_DIR$/agro-api/vendor/brick/math" />
       <excludeFolder url="file://$MODULE_DIR$/agro-api/vendor/composer" />
       <excludeFolder url="file://$MODULE_DIR$/agro-api/vendor/dnoegel/php-xdg-base-dir" />

@@ -33,7 +33,7 @@ curl -X POST \
     "http://localhost:8082/api/auth/login" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json" \
-    -d '{"email":"sequi","senha":"consequatur"}'
+    -d '{"email":"vero","senha":"praesentium"}'
 
 ```
 
@@ -48,8 +48,8 @@ let headers = {
 };
 
 let body = {
-    "email": "sequi",
-    "senha": "consequatur"
+    "email": "vero",
+    "senha": "praesentium"
 }
 
 fetch(url, {
@@ -139,7 +139,7 @@ curl -X POST \
     "http://localhost:8082/api/auth/registro" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json" \
-    -d '{"nome":"aut","email":"dolores","senha":"alias"}'
+    -d '{"nome":"atque","email":"repellendus","senha":"dolor"}'
 
 ```
 
@@ -154,9 +154,9 @@ let headers = {
 };
 
 let body = {
-    "nome": "aut",
-    "email": "dolores",
-    "senha": "alias"
+    "nome": "atque",
+    "email": "repellendus",
+    "senha": "dolor"
 }
 
 fetch(url, {
@@ -368,7 +368,7 @@ curl -X POST \
     "http://localhost:8082/api/culturas" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json" \
-    -d '{"nome":"ut"}'
+    -d '{"nome":"mollitia"}'
 
 ```
 
@@ -383,7 +383,7 @@ let headers = {
 };
 
 let body = {
-    "nome": "ut"
+    "nome": "mollitia"
 }
 
 fetch(url, {
@@ -493,7 +493,7 @@ curl -X PUT \
     "http://localhost:8082/api/culturas/1" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json" \
-    -d '{"nome":"fugiat"}'
+    -d '{"nome":"eaque"}'
 
 ```
 
@@ -508,7 +508,7 @@ let headers = {
 };
 
 let body = {
-    "nome": "fugiat"
+    "nome": "eaque"
 }
 
 fetch(url, {
@@ -620,7 +620,7 @@ fetch(url, {
 
 ```bash
 curl -X GET \
-    -G "http://localhost:8082/api/dosagens/pdf?cultura=nihil&produto=hic&praga=non" \
+    -G "http://localhost:8082/api/dosagens/pdf?cultura=laborum&produto=et&praga=atque" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json"
 ```
@@ -631,9 +631,9 @@ const url = new URL(
 );
 
 let params = {
-    "cultura": "nihil",
-    "produto": "hic",
-    "praga": "non",
+    "cultura": "laborum",
+    "produto": "et",
+    "praga": "atque",
 };
 Object.keys(params)
     .forEach(key => url.searchParams.append(key, params[key]));
@@ -679,7 +679,7 @@ Parameter | Status | Description
 
 ```bash
 curl -X GET \
-    -G "http://localhost:8082/api/dosagens?cultura=voluptatem&produto=quia&praga=et" \
+    -G "http://localhost:8082/api/dosagens?cultura=tempora&produto=voluptatem&praga=possimus" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json"
 ```
@@ -690,9 +690,9 @@ const url = new URL(
 );
 
 let params = {
-    "cultura": "voluptatem",
-    "produto": "quia",
-    "praga": "et",
+    "cultura": "tempora",
+    "produto": "voluptatem",
+    "praga": "possimus",
 };
 Object.keys(params)
     .forEach(key => url.searchParams.append(key, params[key]));
@@ -751,7 +751,7 @@ curl -X POST \
     "http://localhost:8082/api/dosagens" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json" \
-    -d '{"dosagem":"ad","cultura":16,"produto":11,"praga":13}'
+    -d '{"dosagem":"dolorem","cultura":10,"produto":1,"praga":2}'
 
 ```
 
@@ -766,10 +766,10 @@ let headers = {
 };
 
 let body = {
-    "dosagem": "ad",
-    "cultura": 16,
-    "produto": 11,
-    "praga": 13
+    "dosagem": "dolorem",
+    "cultura": 10,
+    "produto": 1,
+    "praga": 2
 }
 
 fetch(url, {
@@ -794,6 +794,11 @@ fetch(url, {
     "created_at": "2020-08-05T02:54:16.000000Z",
     "updated_at": "2020-08-05T02:54:16.000000Z"
 }
+```
+> Example response (400):
+
+```json
+null
 ```
 
 ### HTTP Request
@@ -962,6 +967,302 @@ fetch(url, {
 
 <!-- END_c16f685f7352cbe2c256d33218bf30dd -->
 
+#Pragas
+
+
+<!-- START_4d0666b6bdb5dfbcdc3c604cea49bb3e -->
+## Listar pragas.
+
+<br><small style="padding: 1px 9px 2px;font-weight: bold;white-space: nowrap;color: #ffffff;-webkit-border-radius: 9px;-moz-border-radius: 9px;border-radius: 9px;background-color: #3a87ad;">Requires authentication</small>
+> Example request:
+
+```bash
+curl -X GET \
+    -G "http://localhost:8082/api/pragas" \
+    -H "Content-Type: application/json" \
+    -H "Accept: application/json"
+```
+
+```javascript
+const url = new URL(
+    "http://localhost:8082/api/pragas"
+);
+
+let headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+fetch(url, {
+    method: "GET",
+    headers: headers,
+})
+    .then(response => response.json())
+    .then(json => console.log(json));
+```
+
+
+> Example response (200):
+
+```json
+[
+    {
+        "id": 1,
+        "nome": "Erva Daninha",
+        "created_at": "2020-08-03 19:52:31",
+        "updated_at": "2020-08-03 19:52:31"
+    }
+]
+```
+
+### HTTP Request
+`GET api/pragas`
+
+
+<!-- END_4d0666b6bdb5dfbcdc3c604cea49bb3e -->
+
+<!-- START_d1f5cc70d69128785668ca990135ee5e -->
+## Criar nova praga.
+
+<br><small style="padding: 1px 9px 2px;font-weight: bold;white-space: nowrap;color: #ffffff;-webkit-border-radius: 9px;-moz-border-radius: 9px;border-radius: 9px;background-color: #3a87ad;">Requires authentication</small>
+> Example request:
+
+```bash
+curl -X POST \
+    "http://localhost:8082/api/pragas" \
+    -H "Content-Type: application/json" \
+    -H "Accept: application/json" \
+    -d '{"nome":"sapiente"}'
+
+```
+
+```javascript
+const url = new URL(
+    "http://localhost:8082/api/pragas"
+);
+
+let headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+let body = {
+    "nome": "sapiente"
+}
+
+fetch(url, {
+    method: "POST",
+    headers: headers,
+    body: body
+})
+    .then(response => response.json())
+    .then(json => console.log(json));
+```
+
+
+> Example response (201):
+
+```json
+{
+    "id": 1,
+    "nome": "Erva Daninha",
+    "created_at": "2020-08-03 19:52:31",
+    "updated_at": "2020-08-03 19:52:31"
+}
+```
+> Example response (400):
+
+```json
+{
+    "nome": [
+        "nome deve ser único."
+    ]
+}
+```
+
+### HTTP Request
+`POST api/pragas`
+
+#### Body Parameters
+Parameter | Type | Status | Description
+--------- | ------- | ------- | ------- | -----------
+    `nome` | string |  required  | Nome da praga, exemplo: Erva Daninha
+    
+<!-- END_d1f5cc70d69128785668ca990135ee5e -->
+
+<!-- START_bcad4025ba1d10a6226275efdb6cc6d5 -->
+## Obter praga por ID.
+
+<br><small style="padding: 1px 9px 2px;font-weight: bold;white-space: nowrap;color: #ffffff;-webkit-border-radius: 9px;-moz-border-radius: 9px;border-radius: 9px;background-color: #3a87ad;">Requires authentication</small>
+> Example request:
+
+```bash
+curl -X GET \
+    -G "http://localhost:8082/api/pragas/1" \
+    -H "Content-Type: application/json" \
+    -H "Accept: application/json"
+```
+
+```javascript
+const url = new URL(
+    "http://localhost:8082/api/pragas/1"
+);
+
+let headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+fetch(url, {
+    method: "GET",
+    headers: headers,
+})
+    .then(response => response.json())
+    .then(json => console.log(json));
+```
+
+
+> Example response (200):
+
+```json
+{
+    "id": 1,
+    "nome": "Erva Daninha",
+    "created_at": "2020-08-03 19:52:31",
+    "updated_at": "2020-08-03 19:52:31"
+}
+```
+> Example response (404):
+
+```json
+{
+    "message": "Praga não encontrada"
+}
+```
+
+### HTTP Request
+`GET api/pragas/{praga}`
+
+
+<!-- END_bcad4025ba1d10a6226275efdb6cc6d5 -->
+
+<!-- START_41cf66d6505cf8ef3ab062c7b4ddc0a9 -->
+## Editar praga.
+
+<br><small style="padding: 1px 9px 2px;font-weight: bold;white-space: nowrap;color: #ffffff;-webkit-border-radius: 9px;-moz-border-radius: 9px;border-radius: 9px;background-color: #3a87ad;">Requires authentication</small>
+> Example request:
+
+```bash
+curl -X PUT \
+    "http://localhost:8082/api/pragas/1" \
+    -H "Content-Type: application/json" \
+    -H "Accept: application/json" \
+    -d '{"nome":"necessitatibus"}'
+
+```
+
+```javascript
+const url = new URL(
+    "http://localhost:8082/api/pragas/1"
+);
+
+let headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+let body = {
+    "nome": "necessitatibus"
+}
+
+fetch(url, {
+    method: "PUT",
+    headers: headers,
+    body: body
+})
+    .then(response => response.json())
+    .then(json => console.log(json));
+```
+
+
+> Example response (400):
+
+```json
+{
+    "pultura": [
+        "praga não encontrada."
+    ],
+    "nome": [
+        "nome deve ser único."
+    ]
+}
+```
+
+### HTTP Request
+`PUT api/pragas/{praga}`
+
+`PATCH api/pragas/{praga}`
+
+#### Body Parameters
+Parameter | Type | Status | Description
+--------- | ------- | ------- | ------- | -----------
+    `nome` | string |  required  | Nome da praga, exemplo: Erva Daninha
+    
+<!-- END_41cf66d6505cf8ef3ab062c7b4ddc0a9 -->
+
+<!-- START_9005679a7b54db73c12989142e872109 -->
+## Deletar praga.
+
+<br><small style="padding: 1px 9px 2px;font-weight: bold;white-space: nowrap;color: #ffffff;-webkit-border-radius: 9px;-moz-border-radius: 9px;border-radius: 9px;background-color: #3a87ad;">Requires authentication</small>
+> Example request:
+
+```bash
+curl -X DELETE \
+    "http://localhost:8082/api/pragas/1" \
+    -H "Content-Type: application/json" \
+    -H "Accept: application/json"
+```
+
+```javascript
+const url = new URL(
+    "http://localhost:8082/api/pragas/1"
+);
+
+let headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+fetch(url, {
+    method: "DELETE",
+    headers: headers,
+})
+    .then(response => response.json())
+    .then(json => console.log(json));
+```
+
+
+> Example response (404):
+
+```json
+{
+    "message": "Praga não encontrada"
+}
+```
+> Example response (200):
+
+```json
+{
+    "message": "Deletado com sucesso"
+}
+```
+
+### HTTP Request
+`DELETE api/pragas/{praga}`
+
+
+<!-- END_9005679a7b54db73c12989142e872109 -->
+
 #Produtos
 
 
@@ -1027,7 +1328,7 @@ curl -X POST \
     "http://localhost:8082/api/produtos" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json" \
-    -d '{"nome":"veniam"}'
+    -d '{"nome":"laborum"}'
 
 ```
 
@@ -1042,7 +1343,7 @@ let headers = {
 };
 
 let body = {
-    "nome": "veniam"
+    "nome": "laborum"
 }
 
 fetch(url, {
@@ -1152,7 +1453,7 @@ curl -X PUT \
     "http://localhost:8082/api/produtos/1" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json" \
-    -d '{"nome":"beatae"}'
+    -d '{"nome":"odio"}'
 
 ```
 
@@ -1167,7 +1468,7 @@ let headers = {
 };
 
 let body = {
-    "nome": "beatae"
+    "nome": "odio"
 }
 
 fetch(url, {

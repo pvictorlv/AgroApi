@@ -37,17 +37,13 @@ class AuthController extends Controller
     public function login(Request $request): JsonResponse
     {
 
-        $custom_messages = [
-            'required' => 'O atributo :attribute não pode ficar em branco.'
-        ];
-
         $validator = validator()->make($request->all(), [
             'email' => 'required|string|email|max:100',
             'senha' => 'required|string',
-        ], $custom_messages);
+        ], $this->getCustomMessages());
 
         if ($validator->fails()) {
-            return $this->badRequest($validator->errors()->toJson());
+            return response()->json($validator->errors()->toJson(), 400);
         }
 
 
@@ -82,21 +78,15 @@ class AuthController extends Controller
      */
     public function register(Request $request): JsonResponse
     {
-        $custom_messages = [
-            'required' => 'O atributo :attribute não pode ficar em branco.',
-            'unique' => ':attribute deve ser único.',
-            'min' => ':attribute deve ter pelo menos :min caracteres.'
-        ];
-
         $validator = validator()->make($request->all(), [
             'nome' => 'required|string|between:2,100',
             'email' => 'required|string|email|max:100|unique:usuarios',
             'senha' => 'required|string|min:6',
-        ], $custom_messages);
+        ], $this->getCustomMessages());
 
 
         if ($validator->fails()) {
-            return $this->badRequest($validator->errors()->toJson());
+            return response()->json($validator->errors()->toJson(), 400);
         }
 
         $user = Usuario::create(array_merge(

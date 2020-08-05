@@ -122,6 +122,7 @@
       <path value="$PROJECT_DIR$/agro-api/vendor/windwalker/renderer" />
       <path value="$PROJECT_DIR$/agro-api/vendor/windwalker/structure" />
       <path value="$PROJECT_DIR$/agro-api/vendor/erusev/parsedown" />
+      <path value="$PROJECT_DIR$/agro-api/vendor/barryvdh/laravel-dompdf" />
     </include_path>
   </component>
   <component name="PhpProjectSharedConfiguration" php_language_level="7.4" />
