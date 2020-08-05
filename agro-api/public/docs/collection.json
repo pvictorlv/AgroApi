@@ -2,7 +2,7 @@
     "variables": [],
     "info": {
         "name": "Laravel API",
-        "_postman_id": "b622e37a-3307-4c24-9d6e-bc9298ca39a7",
+        "_postman_id": "54de2a1c-e5dc-4223-9dd6-cbd4ff45a5fa",
         "description": "",
         "schema": "https:\/\/schema.getpostman.com\/json\/collection\/v2.0.0\/collection.json"
     },
@@ -16,7 +16,7 @@
                     "request": {
                         "url": {
                             "protocol": "http",
-                            "host": "localhost",
+                            "host": "localhost:8082",
                             "path": "api\/auth\/login",
                             "query": []
                         },
@@ -33,7 +33,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "[]"
+                            "raw": "{\n    \"email\": \"ut\",\n    \"senha\": \"vero\"\n}"
                         },
                         "description": "",
                         "response": []
@@ -44,7 +44,7 @@
                     "request": {
                         "url": {
                             "protocol": "http",
-                            "host": "localhost",
+                            "host": "localhost:8082",
                             "path": "api\/auth\/logout",
                             "query": []
                         },
@@ -68,11 +68,11 @@
                     }
                 },
                 {
-                    "name": "Register a User.",
+                    "name": "Registrar novo usu\u00e1rio.",
                     "request": {
                         "url": {
                             "protocol": "http",
-                            "host": "localhost",
+                            "host": "localhost:8082",
                             "path": "api\/auth\/registro",
                             "query": []
                         },
@@ -89,7 +89,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "[]"
+                            "raw": "{\n    \"nome\": \"sed\",\n    \"email\": \"sit\",\n    \"senha\": \"quidem\"\n}"
                         },
                         "description": "",
                         "response": []
@@ -100,7 +100,7 @@
                     "request": {
                         "url": {
                             "protocol": "http",
-                            "host": "localhost",
+                            "host": "localhost:8082",
                             "path": "api\/auth\/refresh",
                             "query": []
                         },
@@ -128,7 +128,7 @@
                     "request": {
                         "url": {
                             "protocol": "http",
-                            "host": "localhost",
+                            "host": "localhost:8082",
                             "path": "api\/auth\/me",
                             "query": []
                         },
@@ -162,7 +162,7 @@
                     "request": {
                         "url": {
                             "protocol": "http",
-                            "host": "localhost",
+                            "host": "localhost:8082",
                             "path": "api\/culturas",
                             "query": []
                         },
@@ -190,7 +190,7 @@
                     "request": {
                         "url": {
                             "protocol": "http",
-                            "host": "localhost",
+                            "host": "localhost:8082",
                             "path": "api\/culturas",
                             "query": []
                         },
@@ -207,7 +207,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\n    \"nome\": \"cumque\"\n}"
+                            "raw": "{\n    \"nome\": \"quia\"\n}"
                         },
                         "description": "",
                         "response": []
@@ -218,7 +218,7 @@
                     "request": {
                         "url": {
                             "protocol": "http",
-                            "host": "localhost",
+                            "host": "localhost:8082",
                             "path": "api\/culturas\/:cultura",
                             "query": []
                         },
@@ -246,7 +246,7 @@
                     "request": {
                         "url": {
                             "protocol": "http",
-                            "host": "localhost",
+                            "host": "localhost:8082",
                             "path": "api\/culturas\/:cultura",
                             "query": []
                         },
@@ -263,7 +263,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\n    \"nome\": \"sit\"\n}"
+                            "raw": "{\n    \"nome\": \"ab\"\n}"
                         },
                         "description": "",
                         "response": []
@@ -274,8 +274,173 @@
                     "request": {
                         "url": {
                             "protocol": "http",
-                            "host": "localhost",
+                            "host": "localhost:8082",
                             "path": "api\/culturas\/:cultura",
+                            "query": []
+                        },
+                        "method": "DELETE",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "[]"
+                        },
+                        "description": "",
+                        "response": []
+                    }
+                }
+            ]
+        },
+        {
+            "name": "Dosagens",
+            "description": "",
+            "item": [
+                {
+                    "name": "Listar dosagens.",
+                    "request": {
+                        "url": {
+                            "protocol": "http",
+                            "host": "localhost:8082",
+                            "path": "api\/dosagens",
+                            "query": [
+                                {
+                                    "key": "cultura",
+                                    "value": "enim",
+                                    "description": "int ID da cultura, exemplo: 1",
+                                    "disabled": false
+                                },
+                                {
+                                    "key": "produto",
+                                    "value": "est",
+                                    "description": "int ID do produto, exemplo: 2",
+                                    "disabled": false
+                                },
+                                {
+                                    "key": "praga",
+                                    "value": "perspiciatis",
+                                    "description": "int ID da praga, exemplo: 1",
+                                    "disabled": false
+                                }
+                            ]
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "[]"
+                        },
+                        "description": "",
+                        "response": []
+                    }
+                },
+                {
+                    "name": "Criar uma nova dosagem.",
+                    "request": {
+                        "url": {
+                            "protocol": "http",
+                            "host": "localhost:8082",
+                            "path": "api\/dosagens",
+                            "query": []
+                        },
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\n    \"dosagem\": \"ipsam\",\n    \"cultura\": 14,\n    \"produto\": 4,\n    \"praga\": 4\n}"
+                        },
+                        "description": "",
+                        "response": []
+                    }
+                },
+                {
+                    "name": "Obter dosagem por ID.",
+                    "request": {
+                        "url": {
+                            "protocol": "http",
+                            "host": "localhost:8082",
+                            "path": "api\/dosagens\/:dosagen",
+                            "query": []
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "[]"
+                        },
+                        "description": "",
+                        "response": []
+                    }
+                },
+                {
+                    "name": "Update the specified resource in storage.",
+                    "request": {
+                        "url": {
+                            "protocol": "http",
+                            "host": "localhost:8082",
+                            "path": "api\/dosagens\/:dosagen",
+                            "query": []
+                        },
+                        "method": "PUT",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "[]"
+                        },
+                        "description": "",
+                        "response": []
+                    }
+                },
+                {
+                    "name": "Deletar dosagem.",
+                    "request": {
+                        "url": {
+                            "protocol": "http",
+                            "host": "localhost:8082",
+                            "path": "api\/dosagens\/:dosagen",
                             "query": []
                         },
                         "method": "DELETE",
@@ -308,7 +473,7 @@
                     "request": {
                         "url": {
                             "protocol": "http",
-                            "host": "localhost",
+                            "host": "localhost:8082",
                             "path": "api\/produtos",
                             "query": []
                         },
@@ -336,7 +501,7 @@
                     "request": {
                         "url": {
                             "protocol": "http",
-                            "host": "localhost",
+                            "host": "localhost:8082",
                             "path": "api\/produtos",
                             "query": []
                         },
@@ -353,7 +518,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\n    \"nome\": \"dignissimos\"\n}"
+                            "raw": "{\n    \"nome\": \"illo\"\n}"
                         },
                         "description": "",
                         "response": []
@@ -364,7 +529,7 @@
                     "request": {
                         "url": {
                             "protocol": "http",
-                            "host": "localhost",
+                            "host": "localhost:8082",
                             "path": "api\/produtos\/:produto",
                             "query": []
                         },
@@ -392,7 +557,7 @@
                     "request": {
                         "url": {
                             "protocol": "http",
-                            "host": "localhost",
+                            "host": "localhost:8082",
                             "path": "api\/produtos\/:produto",
                             "query": []
                         },
@@ -409,7 +574,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\n    \"nome\": \"iusto\"\n}"
+                            "raw": "{\n    \"nome\": \"qui\"\n}"
                         },
                         "description": "",
                         "response": []
@@ -420,154 +585,8 @@
                     "request": {
                         "url": {
                             "protocol": "http",
-                            "host": "localhost",
+                            "host": "localhost:8082",
                             "path": "api\/produtos\/:produto",
-                            "query": []
-                        },
-                        "method": "DELETE",
-                        "header": [
-                            {
-                                "key": "Content-Type",
-                                "value": "application\/json"
-                            },
-                            {
-                                "key": "Accept",
-                                "value": "application\/json"
-                            }
-                        ],
-                        "body": {
-                            "mode": "raw",
-                            "raw": "[]"
-                        },
-                        "description": "",
-                        "response": []
-                    }
-                }
-            ]
-        },
-        {
-            "name": "general",
-            "description": "",
-            "item": [
-                {
-                    "name": "Display a listing of the resource.",
-                    "request": {
-                        "url": {
-                            "protocol": "http",
-                            "host": "localhost",
-                            "path": "api\/dosagens",
-                            "query": []
-                        },
-                        "method": "GET",
-                        "header": [
-                            {
-                                "key": "Content-Type",
-                                "value": "application\/json"
-                            },
-                            {
-                                "key": "Accept",
-                                "value": "application\/json"
-                            }
-                        ],
-                        "body": {
-                            "mode": "raw",
-                            "raw": "[]"
-                        },
-                        "description": "",
-                        "response": []
-                    }
-                },
-                {
-                    "name": "Store a newly created resource in storage.",
-                    "request": {
-                        "url": {
-                            "protocol": "http",
-                            "host": "localhost",
-                            "path": "api\/dosagens",
-                            "query": []
-                        },
-                        "method": "POST",
-                        "header": [
-                            {
-                                "key": "Content-Type",
-                                "value": "application\/json"
-                            },
-                            {
-                                "key": "Accept",
-                                "value": "application\/json"
-                            }
-                        ],
-                        "body": {
-                            "mode": "raw",
-                            "raw": "[]"
-                        },
-                        "description": "",
-                        "response": []
-                    }
-                },
-                {
-                    "name": "Display the specified resource.",
-                    "request": {
-                        "url": {
-                            "protocol": "http",
-                            "host": "localhost",
-                            "path": "api\/dosagens\/:dosagen",
-                            "query": []
-                        },
-                        "method": "GET",
-                        "header": [
-                            {
-                                "key": "Content-Type",
-                                "value": "application\/json"
-                            },
-                            {
-                                "key": "Accept",
-                                "value": "application\/json"
-                            }
-                        ],
-                        "body": {
-                            "mode": "raw",
-                            "raw": "[]"
-                        },
-                        "description": "",
-                        "response": []
-                    }
-                },
-                {
-                    "name": "Update the specified resource in storage.",
-                    "request": {
-                        "url": {
-                            "protocol": "http",
-                            "host": "localhost",
-                            "path": "api\/dosagens\/:dosagen",
-                            "query": []
-                        },
-                        "method": "PUT",
-                        "header": [
-                            {
-                                "key": "Content-Type",
-                                "value": "application\/json"
-                            },
-                            {
-                                "key": "Accept",
-                                "value": "application\/json"
-                            }
-                        ],
-                        "body": {
-                            "mode": "raw",
-                            "raw": "[]"
-                        },
-                        "description": "",
-                        "response": []
-                    }
-                },
-                {
-                    "name": "Remove the specified resource from storage.",
-                    "request": {
-                        "url": {
-                            "protocol": "http",
-                            "host": "localhost",
-                            "path": "api\/dosagens\/:dosagen",
                             "query": []
                         },
                         "method": "DELETE",

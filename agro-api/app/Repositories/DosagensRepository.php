@@ -27,19 +27,28 @@ class DosagensRepository implements Repository
         return $this->model->find($id);
     }
 
-    public function DosagemExistente(string $nome): bool
+    public function search($produto, $cultura, $praga)
     {
-        //todo
-        return $this->model->where('nome', '=', $nome)->exists();
+        $query = Dosagem::query();
+
+        if ($produto != null) {
+            $query = $query->where('produto_id', '=', $produto);
+        }
+
+        if ($cultura != null) {
+            $query = $query->where('cultura_id', '=', $cultura);
+        }
+
+        if ($praga != null) {
+            $query = $query->where('praga_id', '=', $praga);
+        }
+
+        return $query->get();
     }
 
     public function create(array $fields): Model
     {
-        $dosagem = new Dosagem();
-        $dosagem->fill($fields);
-        $dosagem->save();
-
-        return $dosagem;
+        return $this->model->firstOrNew($fields);
     }
 
     public function update(Model $model, array $fields): Model
@@ -49,6 +58,7 @@ class DosagensRepository implements Repository
 
         return $model;
     }
+
 
     public function delete(Model $model): void
     {

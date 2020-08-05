@@ -14,10 +14,6 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::middleware('auth:api')->get('/user', function (Request $request) {
-    return $request->user();
-});
-
 Route::group(['middleware' => 'api', 'prefix' => 'auth'], static function () {
     Route::post('login', 'AuthController@login');
     Route::post('logout', 'AuthController@logout');
@@ -30,4 +26,4 @@ Route::apiResource('culturas', 'CulturasController');
 Route::apiResource('produtos', 'ProdutosController');
 Route::apiResource('produtos', 'ProdutosController');
 Route::apiResource('dosagens', 'DosagensController');
-
+Route::get('/api/dosagens/pdf', 'DosagensController@exportPdf');

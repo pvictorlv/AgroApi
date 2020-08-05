@@ -15,7 +15,7 @@ class CreateCulturasTable extends Migration
     {
         Schema::create('culturas', function (Blueprint $table) {
             $table->id()->unsigned();
-            $table->string('nome');
+            $table->string('nome')->unique();
             $table->timestamps();
         });
     }

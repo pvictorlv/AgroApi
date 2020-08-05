@@ -10,5 +10,10 @@ use Illuminate\Database\Eloquent\Builder;
  */
 class Praga extends Model
 {
+    protected $table = 'pragas';
+
+    protected $fillable = [
+        'nome'
+    ];
     //
 }

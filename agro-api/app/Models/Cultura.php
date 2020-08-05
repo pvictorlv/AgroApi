@@ -9,5 +9,10 @@ use Illuminate\Database\Eloquent\Model;
  */
 class Cultura extends Model
 {
+    protected $table = 'culturas';
+
+    protected $fillable = [
+        'nome'
+    ];
     //
 }

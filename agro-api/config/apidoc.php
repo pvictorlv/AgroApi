@@ -18,13 +18,13 @@ return [
      * Settings for `laravel` type output.
      */
     'laravel' => [
-        'docs_url' => 'public/docs',
+        'docs_url' => '/docs',
 
         /*
          * Whether to automatically create a docs endpoint for you to view your generated docs.
          * If this is false, you can still set up routing manually.
          */
-        'autoload' => false,
+        'autoload' => true,
 
         /*
          * Middleware to attach to the docs endpoint (if `autoload` is true).

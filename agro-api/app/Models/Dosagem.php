@@ -12,6 +12,13 @@ use Illuminate\Database\Eloquent\Relations\HasOne;
  */
 class Dosagem extends Model
 {
+
+    protected $table = 'dosagens';
+
+    protected $fillable = [
+        'nome', 'praga_id', 'produto_id', 'cultura_id', 'dosagem'
+    ];
+
     //
 
     public function produto(): BelongsTo

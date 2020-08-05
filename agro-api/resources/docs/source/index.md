@@ -16,7 +16,7 @@ toc_footers:
 # Info
 
 Welcome to the generated API reference.
-[Get Postman Collection](http://localhost/docs/collection.json)
+[Get Postman Collection](http://localhost:8082/docs/collection.json)
 
 <!-- END_INFO -->
 
@@ -30,14 +30,16 @@ Gerenciamento de sessão.
 
 ```bash
 curl -X POST \
-    "http://localhost/api/auth/login" \
+    "http://localhost:8082/api/auth/login" \
     -H "Content-Type: application/json" \
-    -H "Accept: application/json"
+    -H "Accept: application/json" \
+    -d '{"email":"ut","senha":"vero"}'
+
 ```
 
 ```javascript
 const url = new URL(
-    "http://localhost/api/auth/login"
+    "http://localhost:8082/api/auth/login"
 );
 
 let headers = {
@@ -45,37 +47,58 @@ let headers = {
     "Accept": "application/json",
 };
 
+let body = {
+    "email": "ut",
+    "senha": "vero"
+}
+
 fetch(url, {
     method: "POST",
     headers: headers,
+    body: body
 })
     .then(response => response.json())
     .then(json => console.log(json));
 ```
 
 
+> Example response (200):
+
+```json
+{
+    "access_token": "xxxxx.yyyy.zzzz",
+    "token_type": "bearer",
+    "expires_in": 3600
+}
+```
 
 ### HTTP Request
 `POST api/auth/login`
 
-
+#### Body Parameters
+Parameter | Type | Status | Description
+--------- | ------- | ------- | ------- | -----------
+    `email` | string |  required  | Email do usuário, exemplo: Admin@Admin.com
+        `senha` | string |  required  | Senha do usuário, exemplo: 123456
+    
 <!-- END_a925a8d22b3615f12fca79456d286859 -->
 
 <!-- START_19ff1b6f8ce19d3c444e9b518e8f7160 -->
 ## Finalizar e invalidar a sessão atual.
 
+<br><small style="padding: 1px 9px 2px;font-weight: bold;white-space: nowrap;color: #ffffff;-webkit-border-radius: 9px;-moz-border-radius: 9px;border-radius: 9px;background-color: #3a87ad;">Requires authentication</small>
 > Example request:
 
 ```bash
 curl -X POST \
-    "http://localhost/api/auth/logout" \
+    "http://localhost:8082/api/auth/logout" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json"
 ```
 
 ```javascript
 const url = new URL(
-    "http://localhost/api/auth/logout"
+    "http://localhost:8082/api/auth/logout"
 );
 
 let headers = {
@@ -92,6 +115,13 @@ fetch(url, {
 ```
 
 
+> Example response (200):
+
+```json
+{
+    "message": "Deslogado com sucesso!"
+}
+```
 
 ### HTTP Request
 `POST api/auth/logout`
@@ -100,20 +130,22 @@ fetch(url, {
 <!-- END_19ff1b6f8ce19d3c444e9b518e8f7160 -->
 
 <!-- START_b8685907d076b226506a2f2852a60e81 -->
-## Register a User.
+## Registrar novo usuário.
 
 > Example request:
 
 ```bash
 curl -X POST \
-    "http://localhost/api/auth/registro" \
+    "http://localhost:8082/api/auth/registro" \
     -H "Content-Type: application/json" \
-    -H "Accept: application/json"
+    -H "Accept: application/json" \
+    -d '{"nome":"sed","email":"sit","senha":"quidem"}'
+
 ```
 
 ```javascript
 const url = new URL(
-    "http://localhost/api/auth/registro"
+    "http://localhost:8082/api/auth/registro"
 );
 
 let headers = {
@@ -121,37 +153,74 @@ let headers = {
     "Accept": "application/json",
 };
 
+let body = {
+    "nome": "sed",
+    "email": "sit",
+    "senha": "quidem"
+}
+
 fetch(url, {
     method: "POST",
     headers: headers,
+    body: body
 })
     .then(response => response.json())
     .then(json => console.log(json));
 ```
 
 
+> Example response (200):
+
+```json
+{
+    "nome": "testes",
+    "email": "123@123.com",
+    "updated_at": "2020-08-04T20:28:24.000000Z",
+    "created_at": "2020-08-04T20:28:24.000000Z",
+    "id": 7
+}
+```
+> Example response (400):
+
+```json
+{
+    "email": [
+        "email deve ser único."
+    ],
+    "senha": [
+        "senha deve ter pelo menos 6 caracteres."
+    ]
+}
+```
 
 ### HTTP Request
 `POST api/auth/registro`
 
-
+#### Body Parameters
+Parameter | Type | Status | Description
+--------- | ------- | ------- | ------- | -----------
+    `nome` | string |  required  | Nome do usuário, exemplo: Admin
+        `email` | string |  required  | Email do usuário, exemplo: Admin@Admin.com
+        `senha` | string |  required  | Senha do usuário, exemplo: 123456
+    
 <!-- END_b8685907d076b226506a2f2852a60e81 -->
 
 <!-- START_994af8f47e3039ba6d6d67c09dd9e415 -->
 ## Atualizar o token.
 
+<br><small style="padding: 1px 9px 2px;font-weight: bold;white-space: nowrap;color: #ffffff;-webkit-border-radius: 9px;-moz-border-radius: 9px;border-radius: 9px;background-color: #3a87ad;">Requires authentication</small>
 > Example request:
 
 ```bash
 curl -X POST \
-    "http://localhost/api/auth/refresh" \
+    "http://localhost:8082/api/auth/refresh" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json"
 ```
 
 ```javascript
 const url = new URL(
-    "http://localhost/api/auth/refresh"
+    "http://localhost:8082/api/auth/refresh"
 );
 
 let headers = {
@@ -168,6 +237,15 @@ fetch(url, {
 ```
 
 
+> Example response (200):
+
+```json
+{
+    "access_token": "xxxxx.yyyy.zzzz",
+    "token_type": "bearer",
+    "expires_in": 3600
+}
+```
 
 ### HTTP Request
 `POST api/auth/refresh`
@@ -178,18 +256,19 @@ fetch(url, {
 <!-- START_a47210337df3b4ba0df697c115ba0c1e -->
 ## Obter o usuário autenticado.
 
+<br><small style="padding: 1px 9px 2px;font-weight: bold;white-space: nowrap;color: #ffffff;-webkit-border-radius: 9px;-moz-border-radius: 9px;border-radius: 9px;background-color: #3a87ad;">Requires authentication</small>
 > Example request:
 
 ```bash
 curl -X POST \
-    "http://localhost/api/auth/me" \
+    "http://localhost:8082/api/auth/me" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json"
 ```
 
 ```javascript
 const url = new URL(
-    "http://localhost/api/auth/me"
+    "http://localhost:8082/api/auth/me"
 );
 
 let headers = {
@@ -206,6 +285,17 @@ fetch(url, {
 ```
 
 
+> Example response (200):
+
+```json
+{
+    "id": 7,
+    "nome": "testes",
+    "email": "123@123.com",
+    "created_at": "2020-08-04T20:28:24.000000Z",
+    "updated_at": "2020-08-04T20:28:24.000000Z"
+}
+```
 
 ### HTTP Request
 `POST api/auth/me`
@@ -224,14 +314,14 @@ fetch(url, {
 
 ```bash
 curl -X GET \
-    -G "http://localhost/api/culturas" \
+    -G "http://localhost:8082/api/culturas" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json"
 ```
 
 ```javascript
 const url = new URL(
-    "http://localhost/api/culturas"
+    "http://localhost:8082/api/culturas"
 );
 
 let headers = {
@@ -275,16 +365,16 @@ fetch(url, {
 
 ```bash
 curl -X POST \
-    "http://localhost/api/culturas" \
+    "http://localhost:8082/api/culturas" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json" \
-    -d '{"nome":"cumque"}'
+    -d '{"nome":"quia"}'
 
 ```
 
 ```javascript
 const url = new URL(
-    "http://localhost/api/culturas"
+    "http://localhost:8082/api/culturas"
 );
 
 let headers = {
@@ -293,7 +383,7 @@ let headers = {
 };
 
 let body = {
-    "nome": "cumque"
+    "nome": "quia"
 }
 
 fetch(url, {
@@ -349,14 +439,14 @@ Parameter | Type | Status | Description
 
 ```bash
 curl -X GET \
-    -G "http://localhost/api/culturas/1" \
+    -G "http://localhost:8082/api/culturas/1" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json"
 ```
 
 ```javascript
 const url = new URL(
-    "http://localhost/api/culturas/1"
+    "http://localhost:8082/api/culturas/1"
 );
 
 let headers = {
@@ -405,16 +495,16 @@ fetch(url, {
 
 ```bash
 curl -X PUT \
-    "http://localhost/api/culturas/1" \
+    "http://localhost:8082/api/culturas/1" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json" \
-    -d '{"nome":"sit"}'
+    -d '{"nome":"ab"}'
 
 ```
 
 ```javascript
 const url = new URL(
-    "http://localhost/api/culturas/1"
+    "http://localhost:8082/api/culturas/1"
 );
 
 let headers = {
@@ -423,7 +513,7 @@ let headers = {
 };
 
 let body = {
-    "nome": "sit"
+    "nome": "ab"
 }
 
 fetch(url, {
@@ -450,6 +540,16 @@ fetch(url, {
     "message": "Nome inválido ou muito curto"
 }
 ```
+> Example response (200):
+
+```json
+{
+    "id": 1,
+    "nome": "Soja",
+    "created_at": "2020-08-03 19:52:31",
+    "updated_at": "2020-08-03 19:52:31"
+}
+```
 
 ### HTTP Request
 `PUT api/culturas/{cultura}`
@@ -471,14 +571,14 @@ Parameter | Type | Status | Description
 
 ```bash
 curl -X DELETE \
-    "http://localhost/api/culturas/1" \
+    "http://localhost:8082/api/culturas/1" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json"
 ```
 
 ```javascript
 const url = new URL(
-    "http://localhost/api/culturas/1"
+    "http://localhost:8082/api/culturas/1"
 );
 
 let headers = {
@@ -516,6 +616,300 @@ fetch(url, {
 
 <!-- END_b0bcafcaf878ed064db1974e2155a620 -->
 
+#Dosagens
+
+
+<!-- START_765319e4ef288e9640888252bce28a97 -->
+## Listar dosagens.
+
+<br><small style="padding: 1px 9px 2px;font-weight: bold;white-space: nowrap;color: #ffffff;-webkit-border-radius: 9px;-moz-border-radius: 9px;border-radius: 9px;background-color: #3a87ad;">Requires authentication</small>
+> Example request:
+
+```bash
+curl -X GET \
+    -G "http://localhost:8082/api/dosagens?cultura=enim&produto=est&praga=perspiciatis" \
+    -H "Content-Type: application/json" \
+    -H "Accept: application/json"
+```
+
+```javascript
+const url = new URL(
+    "http://localhost:8082/api/dosagens"
+);
+
+let params = {
+    "cultura": "enim",
+    "produto": "est",
+    "praga": "perspiciatis",
+};
+Object.keys(params)
+    .forEach(key => url.searchParams.append(key, params[key]));
+
+let headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+fetch(url, {
+    method: "GET",
+    headers: headers,
+})
+    .then(response => response.json())
+    .then(json => console.log(json));
+```
+
+
+> Example response (200):
+
+```json
+[
+    {
+        "id": 1,
+        "cultura_id": 1,
+        "praga_id": 2,
+        "produto_id": 1,
+        "dosagem": "100ml por litro",
+        "created_at": "2020-08-05T02:54:16.000000Z",
+        "updated_at": "2020-08-05T02:54:16.000000Z"
+    }
+]
+```
+
+### HTTP Request
+`GET api/dosagens`
+
+#### Query Parameters
+
+Parameter | Status | Description
+--------- | ------- | ------- | -----------
+    `cultura` |  optional  | int ID da cultura, exemplo: 1
+    `produto` |  optional  | int ID do produto, exemplo: 2
+    `praga` |  optional  | int ID da praga, exemplo: 1
+
+<!-- END_765319e4ef288e9640888252bce28a97 -->
+
+<!-- START_bd3d9c710b1d5baf46815507ed69a285 -->
+## Criar uma nova dosagem.
+
+<br><small style="padding: 1px 9px 2px;font-weight: bold;white-space: nowrap;color: #ffffff;-webkit-border-radius: 9px;-moz-border-radius: 9px;border-radius: 9px;background-color: #3a87ad;">Requires authentication</small>
+> Example request:
+
+```bash
+curl -X POST \
+    "http://localhost:8082/api/dosagens" \
+    -H "Content-Type: application/json" \
+    -H "Accept: application/json" \
+    -d '{"dosagem":"ipsam","cultura":14,"produto":4,"praga":4}'
+
+```
+
+```javascript
+const url = new URL(
+    "http://localhost:8082/api/dosagens"
+);
+
+let headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+let body = {
+    "dosagem": "ipsam",
+    "cultura": 14,
+    "produto": 4,
+    "praga": 4
+}
+
+fetch(url, {
+    method: "POST",
+    headers: headers,
+    body: body
+})
+    .then(response => response.json())
+    .then(json => console.log(json));
+```
+
+
+> Example response (201):
+
+```json
+{
+    "id": 1,
+    "cultura_id": 1,
+    "praga_id": 2,
+    "produto_id": 1,
+    "dosagem": "100ml por litro",
+    "created_at": "2020-08-05T02:54:16.000000Z",
+    "updated_at": "2020-08-05T02:54:16.000000Z"
+}
+```
+
+### HTTP Request
+`POST api/dosagens`
+
+#### Body Parameters
+Parameter | Type | Status | Description
+--------- | ------- | ------- | ------- | -----------
+    `dosagem` | string |  required  | Dosagem, exemplo: 100ml por litro
+        `cultura` | integer |  required  | ID da cultura, exemplo: 1
+        `produto` | integer |  required  | ID do produto, exemplo: 2
+        `praga` | integer |  required  | ID da praga, exemplo: 1
+    
+<!-- END_bd3d9c710b1d5baf46815507ed69a285 -->
+
+<!-- START_e99bfbba274ce06aa71c5ce01d07f3ca -->
+## Obter dosagem por ID.
+
+<br><small style="padding: 1px 9px 2px;font-weight: bold;white-space: nowrap;color: #ffffff;-webkit-border-radius: 9px;-moz-border-radius: 9px;border-radius: 9px;background-color: #3a87ad;">Requires authentication</small>
+> Example request:
+
+```bash
+curl -X GET \
+    -G "http://localhost:8082/api/dosagens/1" \
+    -H "Content-Type: application/json" \
+    -H "Accept: application/json"
+```
+
+```javascript
+const url = new URL(
+    "http://localhost:8082/api/dosagens/1"
+);
+
+let headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+fetch(url, {
+    method: "GET",
+    headers: headers,
+})
+    .then(response => response.json())
+    .then(json => console.log(json));
+```
+
+
+> Example response (200):
+
+```json
+{
+    "id": 1,
+    "cultura_id": 1,
+    "praga_id": 2,
+    "produto_id": 1,
+    "dosagem": "100ml por litro",
+    "created_at": "2020-08-05T02:54:16.000000Z",
+    "updated_at": "2020-08-05T02:54:16.000000Z"
+}
+```
+> Example response (404):
+
+```json
+{
+    "message": "Dosagem não encontrada"
+}
+```
+
+### HTTP Request
+`GET api/dosagens/{dosagen}`
+
+
+<!-- END_e99bfbba274ce06aa71c5ce01d07f3ca -->
+
+<!-- START_0ac17170cab282c03b12f877f0a095b6 -->
+## Update the specified resource in storage.
+
+<br><small style="padding: 1px 9px 2px;font-weight: bold;white-space: nowrap;color: #ffffff;-webkit-border-radius: 9px;-moz-border-radius: 9px;border-radius: 9px;background-color: #3a87ad;">Requires authentication</small>
+> Example request:
+
+```bash
+curl -X PUT \
+    "http://localhost:8082/api/dosagens/1" \
+    -H "Content-Type: application/json" \
+    -H "Accept: application/json"
+```
+
+```javascript
+const url = new URL(
+    "http://localhost:8082/api/dosagens/1"
+);
+
+let headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+fetch(url, {
+    method: "PUT",
+    headers: headers,
+})
+    .then(response => response.json())
+    .then(json => console.log(json));
+```
+
+
+
+### HTTP Request
+`PUT api/dosagens/{dosagen}`
+
+`PATCH api/dosagens/{dosagen}`
+
+
+<!-- END_0ac17170cab282c03b12f877f0a095b6 -->
+
+<!-- START_c16f685f7352cbe2c256d33218bf30dd -->
+## Deletar dosagem.
+
+<br><small style="padding: 1px 9px 2px;font-weight: bold;white-space: nowrap;color: #ffffff;-webkit-border-radius: 9px;-moz-border-radius: 9px;border-radius: 9px;background-color: #3a87ad;">Requires authentication</small>
+> Example request:
+
+```bash
+curl -X DELETE \
+    "http://localhost:8082/api/dosagens/1" \
+    -H "Content-Type: application/json" \
+    -H "Accept: application/json"
+```
+
+```javascript
+const url = new URL(
+    "http://localhost:8082/api/dosagens/1"
+);
+
+let headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+fetch(url, {
+    method: "DELETE",
+    headers: headers,
+})
+    .then(response => response.json())
+    .then(json => console.log(json));
+```
+
+
+> Example response (404):
+
+```json
+{
+    "message": "Dosagem não encontrada"
+}
+```
+> Example response (200):
+
+```json
+{
+    "message": "Deletado com sucesso"
+}
+```
+
+### HTTP Request
+`DELETE api/dosagens/{dosagen}`
+
+
+<!-- END_c16f685f7352cbe2c256d33218bf30dd -->
+
 #Produtos
 
 
@@ -527,14 +921,14 @@ fetch(url, {
 
 ```bash
 curl -X GET \
-    -G "http://localhost/api/produtos" \
+    -G "http://localhost:8082/api/produtos" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json"
 ```
 
 ```javascript
 const url = new URL(
-    "http://localhost/api/produtos"
+    "http://localhost:8082/api/produtos"
 );
 
 let headers = {
@@ -578,16 +972,16 @@ fetch(url, {
 
 ```bash
 curl -X POST \
-    "http://localhost/api/produtos" \
+    "http://localhost:8082/api/produtos" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json" \
-    -d '{"nome":"dignissimos"}'
+    -d '{"nome":"illo"}'
 
 ```
 
 ```javascript
 const url = new URL(
-    "http://localhost/api/produtos"
+    "http://localhost:8082/api/produtos"
 );
 
 let headers = {
@@ -596,7 +990,7 @@ let headers = {
 };
 
 let body = {
-    "nome": "dignissimos"
+    "nome": "illo"
 }
 
 fetch(url, {
@@ -652,14 +1046,14 @@ Parameter | Type | Status | Description
 
 ```bash
 curl -X GET \
-    -G "http://localhost/api/produtos/1" \
+    -G "http://localhost:8082/api/produtos/1" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json"
 ```
 
 ```javascript
 const url = new URL(
-    "http://localhost/api/produtos/1"
+    "http://localhost:8082/api/produtos/1"
 );
 
 let headers = {
@@ -708,16 +1102,16 @@ fetch(url, {
 
 ```bash
 curl -X PUT \
-    "http://localhost/api/produtos/1" \
+    "http://localhost:8082/api/produtos/1" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json" \
-    -d '{"nome":"iusto"}'
+    -d '{"nome":"qui"}'
 
 ```
 
 ```javascript
 const url = new URL(
-    "http://localhost/api/produtos/1"
+    "http://localhost:8082/api/produtos/1"
 );
 
 let headers = {
@@ -726,7 +1120,7 @@ let headers = {
 };
 
 let body = {
-    "nome": "iusto"
+    "nome": "qui"
 }
 
 fetch(url, {
@@ -774,14 +1168,14 @@ Parameter | Type | Status | Description
 
 ```bash
 curl -X DELETE \
-    "http://localhost/api/produtos/1" \
+    "http://localhost:8082/api/produtos/1" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json"
 ```
 
 ```javascript
 const url = new URL(
-    "http://localhost/api/produtos/1"
+    "http://localhost:8082/api/produtos/1"
 );
 
 let headers = {
@@ -818,200 +1212,5 @@ fetch(url, {
 
 
 <!-- END_1aaf70b2ab74b451e722d0e98df44623 -->
-
-#general
-
-
-<!-- START_765319e4ef288e9640888252bce28a97 -->
-## Display a listing of the resource.
-
-> Example request:
-
-```bash
-curl -X GET \
-    -G "http://localhost/api/dosagens" \
-    -H "Content-Type: application/json" \
-    -H "Accept: application/json"
-```
-
-```javascript
-const url = new URL(
-    "http://localhost/api/dosagens"
-);
-
-let headers = {
-    "Content-Type": "application/json",
-    "Accept": "application/json",
-};
-
-fetch(url, {
-    method: "GET",
-    headers: headers,
-})
-    .then(response => response.json())
-    .then(json => console.log(json));
-```
-
-
-
-### HTTP Request
-`GET api/dosagens`
-
-
-<!-- END_765319e4ef288e9640888252bce28a97 -->
-
-<!-- START_bd3d9c710b1d5baf46815507ed69a285 -->
-## Store a newly created resource in storage.
-
-> Example request:
-
-```bash
-curl -X POST \
-    "http://localhost/api/dosagens" \
-    -H "Content-Type: application/json" \
-    -H "Accept: application/json"
-```
-
-```javascript
-const url = new URL(
-    "http://localhost/api/dosagens"
-);
-
-let headers = {
-    "Content-Type": "application/json",
-    "Accept": "application/json",
-};
-
-fetch(url, {
-    method: "POST",
-    headers: headers,
-})
-    .then(response => response.json())
-    .then(json => console.log(json));
-```
-
-
-
-### HTTP Request
-`POST api/dosagens`
-
-
-<!-- END_bd3d9c710b1d5baf46815507ed69a285 -->
-
-<!-- START_e99bfbba274ce06aa71c5ce01d07f3ca -->
-## Display the specified resource.
-
-> Example request:
-
-```bash
-curl -X GET \
-    -G "http://localhost/api/dosagens/1" \
-    -H "Content-Type: application/json" \
-    -H "Accept: application/json"
-```
-
-```javascript
-const url = new URL(
-    "http://localhost/api/dosagens/1"
-);
-
-let headers = {
-    "Content-Type": "application/json",
-    "Accept": "application/json",
-};
-
-fetch(url, {
-    method: "GET",
-    headers: headers,
-})
-    .then(response => response.json())
-    .then(json => console.log(json));
-```
-
-
-
-### HTTP Request
-`GET api/dosagens/{dosagen}`
-
-
-<!-- END_e99bfbba274ce06aa71c5ce01d07f3ca -->
-
-<!-- START_0ac17170cab282c03b12f877f0a095b6 -->
-## Update the specified resource in storage.
-
-> Example request:
-
-```bash
-curl -X PUT \
-    "http://localhost/api/dosagens/1" \
-    -H "Content-Type: application/json" \
-    -H "Accept: application/json"
-```
-
-```javascript
-const url = new URL(
-    "http://localhost/api/dosagens/1"
-);
-
-let headers = {
-    "Content-Type": "application/json",
-    "Accept": "application/json",
-};
-
-fetch(url, {
-    method: "PUT",
-    headers: headers,
-})
-    .then(response => response.json())
-    .then(json => console.log(json));
-```
-
-
-
-### HTTP Request
-`PUT api/dosagens/{dosagen}`
-
-`PATCH api/dosagens/{dosagen}`
-
-
-<!-- END_0ac17170cab282c03b12f877f0a095b6 -->
-
-<!-- START_c16f685f7352cbe2c256d33218bf30dd -->
-## Remove the specified resource from storage.
-
-> Example request:
-
-```bash
-curl -X DELETE \
-    "http://localhost/api/dosagens/1" \
-    -H "Content-Type: application/json" \
-    -H "Accept: application/json"
-```
-
-```javascript
-const url = new URL(
-    "http://localhost/api/dosagens/1"
-);
-
-let headers = {
-    "Content-Type": "application/json",
-    "Accept": "application/json",
-};
-
-fetch(url, {
-    method: "DELETE",
-    headers: headers,
-})
-    .then(response => response.json())
-    .then(json => console.log(json));
-```
-
-
-
-### HTTP Request
-`DELETE api/dosagens/{dosagen}`
-
-
-<!-- END_c16f685f7352cbe2c256d33218bf30dd -->
 
 
