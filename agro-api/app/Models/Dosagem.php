@@ -21,18 +21,18 @@ class Dosagem extends Model
 
     //
 
-    public function produto(): BelongsTo
+    public function produto()
     {
-        return $this->belongsTo(Produto::class);
+        return $this->belongsTo(Produto::class)->first();
     }
 
-    public function praga(): HasOne
+    public function praga()
     {
-        return $this->hasOne(Praga::class);
+        return $this->belongsTo(Praga::class)->first();
     }
 
-    public function cultura(): HasOne
+    public function cultura()
     {
-        return $this->hasOne(Cultura::class);
+        return $this->belongsTo(Cultura::class)->first();
     }
 }

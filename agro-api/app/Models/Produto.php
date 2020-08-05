@@ -15,5 +15,10 @@ class Produto extends Model
     protected $fillable = [
         'nome'
     ];
-    //
+
+
+    public function dosagens()
+    {
+        return $this->hasMany(Dosagem::class)->get();
+    }
 }

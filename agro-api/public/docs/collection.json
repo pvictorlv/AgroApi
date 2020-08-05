@@ -2,7 +2,7 @@
     "variables": [],
     "info": {
         "name": "Laravel API",
-        "_postman_id": "54de2a1c-e5dc-4223-9dd6-cbd4ff45a5fa",
+        "_postman_id": "6d79dd7b-1f4a-42f4-b987-427660bfe32e",
         "description": "",
         "schema": "https:\/\/schema.getpostman.com\/json\/collection\/v2.0.0\/collection.json"
     },
@@ -33,7 +33,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\n    \"email\": \"ut\",\n    \"senha\": \"vero\"\n}"
+                            "raw": "{\n    \"email\": \"a\",\n    \"senha\": \"est\"\n}"
                         },
                         "description": "",
                         "response": []
@@ -89,7 +89,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\n    \"nome\": \"sed\",\n    \"email\": \"sit\",\n    \"senha\": \"quidem\"\n}"
+                            "raw": "{\n    \"nome\": \"voluptatibus\",\n    \"email\": \"iure\",\n    \"senha\": \"molestias\"\n}"
                         },
                         "description": "",
                         "response": []
@@ -207,7 +207,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\n    \"nome\": \"quia\"\n}"
+                            "raw": "{\n    \"nome\": \"exercitationem\"\n}"
                         },
                         "description": "",
                         "response": []
@@ -263,7 +263,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\n    \"nome\": \"ab\"\n}"
+                            "raw": "{\n    \"nome\": \"velit\"\n}"
                         },
                         "description": "",
                         "response": []
@@ -304,6 +304,53 @@
             "description": "",
             "item": [
                 {
+                    "name": "Gerar relat\u00f3rio.",
+                    "request": {
+                        "url": {
+                            "protocol": "http",
+                            "host": "localhost:8082",
+                            "path": "api\/dosagens\/pdf",
+                            "query": [
+                                {
+                                    "key": "cultura",
+                                    "value": "facere",
+                                    "description": "int ID da cultura, exemplo: 1",
+                                    "disabled": false
+                                },
+                                {
+                                    "key": "produto",
+                                    "value": "qui",
+                                    "description": "int ID do produto, exemplo: 2",
+                                    "disabled": false
+                                },
+                                {
+                                    "key": "praga",
+                                    "value": "qui",
+                                    "description": "int ID da praga, exemplo: 1",
+                                    "disabled": false
+                                }
+                            ]
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "[]"
+                        },
+                        "description": "",
+                        "response": []
+                    }
+                },
+                {
                     "name": "Listar dosagens.",
                     "request": {
                         "url": {
@@ -313,19 +360,19 @@
                             "query": [
                                 {
                                     "key": "cultura",
-                                    "value": "enim",
+                                    "value": "debitis",
                                     "description": "int ID da cultura, exemplo: 1",
                                     "disabled": false
                                 },
                                 {
                                     "key": "produto",
-                                    "value": "est",
+                                    "value": "eum",
                                     "description": "int ID do produto, exemplo: 2",
                                     "disabled": false
                                 },
                                 {
                                     "key": "praga",
-                                    "value": "perspiciatis",
+                                    "value": "sint",
                                     "description": "int ID da praga, exemplo: 1",
                                     "disabled": false
                                 }
@@ -372,7 +419,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\n    \"dosagem\": \"ipsam\",\n    \"cultura\": 14,\n    \"produto\": 4,\n    \"praga\": 4\n}"
+                            "raw": "{\n    \"dosagem\": \"itaque\",\n    \"cultura\": 13,\n    \"produto\": 5,\n    \"praga\": 9\n}"
                         },
                         "description": "",
                         "response": []
@@ -518,7 +565,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\n    \"nome\": \"illo\"\n}"
+                            "raw": "{\n    \"nome\": \"alias\"\n}"
                         },
                         "description": "",
                         "response": []

@@ -25,5 +25,6 @@ Route::group(['middleware' => 'api', 'prefix' => 'auth'], static function () {
 Route::apiResource('culturas', 'CulturasController');
 Route::apiResource('produtos', 'ProdutosController');
 Route::apiResource('produtos', 'ProdutosController');
+Route::get('/dosagens/pdf', 'DosagensController@exportPdf');
 Route::apiResource('dosagens', 'DosagensController');
-Route::get('/api/dosagens/pdf', 'DosagensController@exportPdf');
+

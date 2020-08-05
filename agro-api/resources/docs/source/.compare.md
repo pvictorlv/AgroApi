@@ -33,7 +33,7 @@ curl -X POST \
     "http://localhost:8082/api/auth/login" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json" \
-    -d '{"email":"ut","senha":"vero"}'
+    -d '{"email":"a","senha":"est"}'
 
 ```
 
@@ -48,8 +48,8 @@ let headers = {
 };
 
 let body = {
-    "email": "ut",
-    "senha": "vero"
+    "email": "a",
+    "senha": "est"
 }
 
 fetch(url, {
@@ -139,7 +139,7 @@ curl -X POST \
     "http://localhost:8082/api/auth/registro" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json" \
-    -d '{"nome":"sed","email":"sit","senha":"quidem"}'
+    -d '{"nome":"voluptatibus","email":"iure","senha":"molestias"}'
 
 ```
 
@@ -154,9 +154,9 @@ let headers = {
 };
 
 let body = {
-    "nome": "sed",
-    "email": "sit",
-    "senha": "quidem"
+    "nome": "voluptatibus",
+    "email": "iure",
+    "senha": "molestias"
 }
 
 fetch(url, {
@@ -368,7 +368,7 @@ curl -X POST \
     "http://localhost:8082/api/culturas" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json" \
-    -d '{"nome":"quia"}'
+    -d '{"nome":"exercitationem"}'
 
 ```
 
@@ -383,7 +383,7 @@ let headers = {
 };
 
 let body = {
-    "nome": "quia"
+    "nome": "exercitationem"
 }
 
 fetch(url, {
@@ -498,7 +498,7 @@ curl -X PUT \
     "http://localhost:8082/api/culturas/1" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json" \
-    -d '{"nome":"ab"}'
+    -d '{"nome":"velit"}'
 
 ```
 
@@ -513,7 +513,7 @@ let headers = {
 };
 
 let body = {
-    "nome": "ab"
+    "nome": "velit"
 }
 
 fetch(url, {
@@ -619,6 +619,67 @@ fetch(url, {
 #Dosagens
 
 
+<!-- START_f980d53df276409e7d57de288b39b48e -->
+## Gerar relatório.
+
+<br><small style="padding: 1px 9px 2px;font-weight: bold;white-space: nowrap;color: #ffffff;-webkit-border-radius: 9px;-moz-border-radius: 9px;border-radius: 9px;background-color: #3a87ad;">Requires authentication</small>
+> Example request:
+
+```bash
+curl -X GET \
+    -G "http://localhost:8082/api/dosagens/pdf?cultura=facere&produto=qui&praga=qui" \
+    -H "Content-Type: application/json" \
+    -H "Accept: application/json"
+```
+
+```javascript
+const url = new URL(
+    "http://localhost:8082/api/dosagens/pdf"
+);
+
+let params = {
+    "cultura": "facere",
+    "produto": "qui",
+    "praga": "qui",
+};
+Object.keys(params)
+    .forEach(key => url.searchParams.append(key, params[key]));
+
+let headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+fetch(url, {
+    method: "GET",
+    headers: headers,
+})
+    .then(response => response.json())
+    .then(json => console.log(json));
+```
+
+
+> Example response (401):
+
+```json
+{
+    "message": "Token not provided"
+}
+```
+
+### HTTP Request
+`GET api/dosagens/pdf`
+
+#### Query Parameters
+
+Parameter | Status | Description
+--------- | ------- | ------- | -----------
+    `cultura` |  optional  | int ID da cultura, exemplo: 1
+    `produto` |  optional  | int ID do produto, exemplo: 2
+    `praga` |  optional  | int ID da praga, exemplo: 1
+
+<!-- END_f980d53df276409e7d57de288b39b48e -->
+
 <!-- START_765319e4ef288e9640888252bce28a97 -->
 ## Listar dosagens.
 
@@ -627,7 +688,7 @@ fetch(url, {
 
 ```bash
 curl -X GET \
-    -G "http://localhost:8082/api/dosagens?cultura=enim&produto=est&praga=perspiciatis" \
+    -G "http://localhost:8082/api/dosagens?cultura=debitis&produto=eum&praga=sint" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json"
 ```
@@ -638,9 +699,9 @@ const url = new URL(
 );
 
 let params = {
-    "cultura": "enim",
-    "produto": "est",
-    "praga": "perspiciatis",
+    "cultura": "debitis",
+    "produto": "eum",
+    "praga": "sint",
 };
 Object.keys(params)
     .forEach(key => url.searchParams.append(key, params[key]));
@@ -699,7 +760,7 @@ curl -X POST \
     "http://localhost:8082/api/dosagens" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json" \
-    -d '{"dosagem":"ipsam","cultura":14,"produto":4,"praga":4}'
+    -d '{"dosagem":"itaque","cultura":13,"produto":5,"praga":9}'
 
 ```
 
@@ -714,10 +775,10 @@ let headers = {
 };
 
 let body = {
-    "dosagem": "ipsam",
-    "cultura": 14,
-    "produto": 4,
-    "praga": 4
+    "dosagem": "itaque",
+    "cultura": 13,
+    "produto": 5,
+    "praga": 9
 }
 
 fetch(url, {
@@ -975,7 +1036,7 @@ curl -X POST \
     "http://localhost:8082/api/produtos" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json" \
-    -d '{"nome":"illo"}'
+    -d '{"nome":"alias"}'
 
 ```
 
@@ -990,7 +1051,7 @@ let headers = {
 };
 
 let body = {
-    "nome": "illo"
+    "nome": "alias"
 }
 
 fetch(url, {

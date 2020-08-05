@@ -7,7 +7,9 @@ use App\Repositories\DosagensRepository;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
+use Illuminate\Support\Facades\App;
 use Illuminate\Support\Facades\Hash;
+use PDF;
 use Psy\Util\Json;
 
 /**
@@ -31,22 +33,19 @@ class DosagensController extends Controller
      * @queryParam cultura int ID da cultura, exemplo: 1
      * @queryParam produto int ID do produto, exemplo: 2
      * @queryParam praga int ID da praga, exemplo: 1
-     * @response 200 [{
-     * "id": 1,
-     * "cultura_id": 1,
-     * "praga_id": 2,
-     * "produto_id": 1,
-     * "dosagem": "100ml por litro",
-     * "created_at": "2020-08-05T02:54:16.000000Z",
-     * "updated_at": "2020-08-05T02:54:16.000000Z"
-     * }]
+
+     * @param Request $request
      * @return JsonResponse
+     * @throws \Illuminate\Contracts\Container\BindingResolutionException
      */
-    public function exportPdf(Request $request): JsonResponse
+    public function exportPdf(Request $request): Response
     {
         $dosagens = $this->repository->search($request->produto, $request->cultura, $request->praga);
 
-        return \response()->json($this->repository->findAll());
+        $pdf = app()->make('dompdf.wrapper');
+
+        return $pdf->loadView('layout-pdf', compact('dosagens'))
+            ->download('dosagens.pdf');
     }
 
     /**

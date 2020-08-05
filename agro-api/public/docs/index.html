@@ -59,7 +59,7 @@
     "http://localhost:8082/api/auth/login" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json" \
-    -d '{"email":"ut","senha":"vero"}'
+    -d '{"email":"a","senha":"est"}'
 </code></pre>
 <pre><code class="language-javascript">const url = new URL(
     "http://localhost:8082/api/auth/login"
@@ -71,8 +71,8 @@ let headers = {
 };
 
 let body = {
-    "email": "ut",
-    "senha": "vero"
+    "email": "a",
+    "senha": "est"
 }
 
 fetch(url, {
@@ -161,7 +161,7 @@ fetch(url, {
     "http://localhost:8082/api/auth/registro" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json" \
-    -d '{"nome":"sed","email":"sit","senha":"quidem"}'
+    -d '{"nome":"voluptatibus","email":"iure","senha":"molestias"}'
 </code></pre>
 <pre><code class="language-javascript">const url = new URL(
     "http://localhost:8082/api/auth/registro"
@@ -173,9 +173,9 @@ let headers = {
 };
 
 let body = {
-    "nome": "sed",
-    "email": "sit",
-    "senha": "quidem"
+    "nome": "voluptatibus",
+    "email": "iure",
+    "senha": "molestias"
 }
 
 fetch(url, {
@@ -364,7 +364,7 @@ fetch(url, {
     "http://localhost:8082/api/culturas" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json" \
-    -d '{"nome":"quia"}'
+    -d '{"nome":"exercitationem"}'
 </code></pre>
 <pre><code class="language-javascript">const url = new URL(
     "http://localhost:8082/api/culturas"
@@ -376,7 +376,7 @@ let headers = {
 };
 
 let body = {
-    "nome": "quia"
+    "nome": "exercitationem"
 }
 
 fetch(url, {
@@ -482,7 +482,7 @@ fetch(url, {
     "http://localhost:8082/api/culturas/1" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json" \
-    -d '{"nome":"ab"}'
+    -d '{"nome":"velit"}'
 </code></pre>
 <pre><code class="language-javascript">const url = new URL(
     "http://localhost:8082/api/culturas/1"
@@ -494,7 +494,7 @@ let headers = {
 };
 
 let body = {
-    "nome": "ab"
+    "nome": "velit"
 }
 
 fetch(url, {
@@ -589,6 +589,75 @@ fetch(url, {
 <p><code>DELETE api/culturas/{cultura}</code></p>
 <!-- END_b0bcafcaf878ed064db1974e2155a620 -->
 <h1>Dosagens</h1>
+<!-- START_f980d53df276409e7d57de288b39b48e -->
+<h2>Gerar relatório.</h2>
+<p><br><small style="padding: 1px 9px 2px;font-weight: bold;white-space: nowrap;color: #ffffff;-webkit-border-radius: 9px;-moz-border-radius: 9px;border-radius: 9px;background-color: #3a87ad;">Requires authentication</small></p>
+<blockquote>
+<p>Example request:</p>
+</blockquote>
+<pre><code class="language-bash">curl -X GET \
+    -G "http://localhost:8082/api/dosagens/pdf?cultura=facere&amp;produto=qui&amp;praga=qui" \
+    -H "Content-Type: application/json" \
+    -H "Accept: application/json"</code></pre>
+<pre><code class="language-javascript">const url = new URL(
+    "http://localhost:8082/api/dosagens/pdf"
+);
+
+let params = {
+    "cultura": "facere",
+    "produto": "qui",
+    "praga": "qui",
+};
+Object.keys(params)
+    .forEach(key =&gt; url.searchParams.append(key, params[key]));
+
+let headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+fetch(url, {
+    method: "GET",
+    headers: headers,
+})
+    .then(response =&gt; response.json())
+    .then(json =&gt; console.log(json));</code></pre>
+<blockquote>
+<p>Example response (401):</p>
+</blockquote>
+<pre><code class="language-json">{
+    "message": "Token not provided"
+}</code></pre>
+<h3>HTTP Request</h3>
+<p><code>GET api/dosagens/pdf</code></p>
+<h4>Query Parameters</h4>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Status</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>cultura</code></td>
+<td>optional</td>
+<td>int ID da cultura, exemplo: 1</td>
+</tr>
+<tr>
+<td><code>produto</code></td>
+<td>optional</td>
+<td>int ID do produto, exemplo: 2</td>
+</tr>
+<tr>
+<td><code>praga</code></td>
+<td>optional</td>
+<td>int ID da praga, exemplo: 1</td>
+</tr>
+</tbody>
+</table>
+<!-- END_f980d53df276409e7d57de288b39b48e -->
 <!-- START_765319e4ef288e9640888252bce28a97 -->
 <h2>Listar dosagens.</h2>
 <p><br><small style="padding: 1px 9px 2px;font-weight: bold;white-space: nowrap;color: #ffffff;-webkit-border-radius: 9px;-moz-border-radius: 9px;border-radius: 9px;background-color: #3a87ad;">Requires authentication</small></p>
@@ -596,7 +665,7 @@ fetch(url, {
 <p>Example request:</p>
 </blockquote>
 <pre><code class="language-bash">curl -X GET \
-    -G "http://localhost:8082/api/dosagens?cultura=enim&amp;produto=est&amp;praga=perspiciatis" \
+    -G "http://localhost:8082/api/dosagens?cultura=debitis&amp;produto=eum&amp;praga=sint" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json"</code></pre>
 <pre><code class="language-javascript">const url = new URL(
@@ -604,9 +673,9 @@ fetch(url, {
 );
 
 let params = {
-    "cultura": "enim",
-    "produto": "est",
-    "praga": "perspiciatis",
+    "cultura": "debitis",
+    "produto": "eum",
+    "praga": "sint",
 };
 Object.keys(params)
     .forEach(key =&gt; url.searchParams.append(key, params[key]));
@@ -676,7 +745,7 @@ fetch(url, {
     "http://localhost:8082/api/dosagens" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json" \
-    -d '{"dosagem":"ipsam","cultura":14,"produto":4,"praga":4}'
+    -d '{"dosagem":"itaque","cultura":13,"produto":5,"praga":9}'
 </code></pre>
 <pre><code class="language-javascript">const url = new URL(
     "http://localhost:8082/api/dosagens"
@@ -688,10 +757,10 @@ let headers = {
 };
 
 let body = {
-    "dosagem": "ipsam",
-    "cultura": 14,
-    "produto": 4,
-    "praga": 4
+    "dosagem": "itaque",
+    "cultura": 13,
+    "produto": 5,
+    "praga": 9
 }
 
 fetch(url, {
@@ -918,7 +987,7 @@ fetch(url, {
     "http://localhost:8082/api/produtos" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json" \
-    -d '{"nome":"illo"}'
+    -d '{"nome":"alias"}'
 </code></pre>
 <pre><code class="language-javascript">const url = new URL(
     "http://localhost:8082/api/produtos"
@@ -930,7 +999,7 @@ let headers = {
 };
 
 let body = {
-    "nome": "illo"
+    "nome": "alias"
 }
 
 fetch(url, {

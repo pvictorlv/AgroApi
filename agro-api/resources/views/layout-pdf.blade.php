@@ -8,7 +8,10 @@
 <h1>Dosagens</h1>
 @forelse($dosagens as $dosagem)
     <ul>
-        <li>{{ $dosagem->dosagem }}</li>
+        <li>Defensivo {{ $dosagem->produto()->nome }}</li>
+        <li>Efetivo contra {{ $dosagem->praga()->nome }}</li>
+        <li>Aplicar em culturas de {{ $dosagem->cultura()->nome }}</li>
+        <li>Dosagem: {{ $dosagem->dosagem }}</li>
     </ul>
     <hr>
 @empty

@@ -15,5 +15,7 @@ class Praga extends Model
     protected $fillable = [
         'nome'
     ];
+
+
     //
 }
