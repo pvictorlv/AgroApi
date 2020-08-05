@@ -51,8 +51,10 @@ class DosagensRepository implements Repository
         return $this->model->firstOrNew($fields);
     }
 
-    public function update(Model $model, array $fields): Model
+    public function update($id, array $fields): Model
     {
+        $model = $this->getById($id);
+
         $model->fill($fields);
         $model->save();
 

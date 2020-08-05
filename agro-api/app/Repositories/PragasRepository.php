@@ -42,9 +42,9 @@ class PragasRepository implements Repository
         return $praga;
     }
 
-    public function update(Model $model, array $fields): Model
+    public function update($id, array $fields): Model
     {
-        $model->fill($fields);
+        $model = $this->getById($id);
         $model->save();
 
         return $model;

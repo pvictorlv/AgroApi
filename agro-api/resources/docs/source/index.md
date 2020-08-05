@@ -33,7 +33,7 @@ curl -X POST \
     "http://localhost:8082/api/auth/login" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json" \
-    -d '{"email":"a","senha":"est"}'
+    -d '{"email":"sequi","senha":"consequatur"}'
 
 ```
 
@@ -48,8 +48,8 @@ let headers = {
 };
 
 let body = {
-    "email": "a",
-    "senha": "est"
+    "email": "sequi",
+    "senha": "consequatur"
 }
 
 fetch(url, {
@@ -139,7 +139,7 @@ curl -X POST \
     "http://localhost:8082/api/auth/registro" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json" \
-    -d '{"nome":"voluptatibus","email":"iure","senha":"molestias"}'
+    -d '{"nome":"aut","email":"dolores","senha":"alias"}'
 
 ```
 
@@ -154,9 +154,9 @@ let headers = {
 };
 
 let body = {
-    "nome": "voluptatibus",
-    "email": "iure",
-    "senha": "molestias"
+    "nome": "aut",
+    "email": "dolores",
+    "senha": "alias"
 }
 
 fetch(url, {
@@ -368,7 +368,7 @@ curl -X POST \
     "http://localhost:8082/api/culturas" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json" \
-    -d '{"nome":"exercitationem"}'
+    -d '{"nome":"ut"}'
 
 ```
 
@@ -383,7 +383,7 @@ let headers = {
 };
 
 let body = {
-    "nome": "exercitationem"
+    "nome": "ut"
 }
 
 fetch(url, {
@@ -410,14 +410,9 @@ fetch(url, {
 
 ```json
 {
-    "message": "Nome inválido ou muito curto"
-}
-```
-> Example response (409):
-
-```json
-{
-    "message": "Cultura já cadastrada"
+    "nome": [
+        "nome deve ser único."
+    ]
 }
 ```
 
@@ -498,7 +493,7 @@ curl -X PUT \
     "http://localhost:8082/api/culturas/1" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json" \
-    -d '{"nome":"velit"}'
+    -d '{"nome":"fugiat"}'
 
 ```
 
@@ -513,7 +508,7 @@ let headers = {
 };
 
 let body = {
-    "nome": "velit"
+    "nome": "fugiat"
 }
 
 fetch(url, {
@@ -526,18 +521,16 @@ fetch(url, {
 ```
 
 
-> Example response (404):
-
-```json
-{
-    "message": "Cultura não encontrada"
-}
-```
 > Example response (400):
 
 ```json
 {
-    "message": "Nome inválido ou muito curto"
+    "cultura": [
+        "cultura não encontrada."
+    ],
+    "nome": [
+        "nome deve ser único."
+    ]
 }
 ```
 > Example response (200):
@@ -627,7 +620,7 @@ fetch(url, {
 
 ```bash
 curl -X GET \
-    -G "http://localhost:8082/api/dosagens/pdf?cultura=facere&produto=qui&praga=qui" \
+    -G "http://localhost:8082/api/dosagens/pdf?cultura=nihil&produto=hic&praga=non" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json"
 ```
@@ -638,9 +631,9 @@ const url = new URL(
 );
 
 let params = {
-    "cultura": "facere",
-    "produto": "qui",
-    "praga": "qui",
+    "cultura": "nihil",
+    "produto": "hic",
+    "praga": "non",
 };
 Object.keys(params)
     .forEach(key => url.searchParams.append(key, params[key]));
@@ -659,12 +652,10 @@ fetch(url, {
 ```
 
 
-> Example response (401):
+> Example response (200):
 
 ```json
-{
-    "message": "Token not provided"
-}
+{}
 ```
 
 ### HTTP Request
@@ -688,7 +679,7 @@ Parameter | Status | Description
 
 ```bash
 curl -X GET \
-    -G "http://localhost:8082/api/dosagens?cultura=debitis&produto=eum&praga=sint" \
+    -G "http://localhost:8082/api/dosagens?cultura=voluptatem&produto=quia&praga=et" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json"
 ```
@@ -699,9 +690,9 @@ const url = new URL(
 );
 
 let params = {
-    "cultura": "debitis",
-    "produto": "eum",
-    "praga": "sint",
+    "cultura": "voluptatem",
+    "produto": "quia",
+    "praga": "et",
 };
 Object.keys(params)
     .forEach(key => url.searchParams.append(key, params[key]));
@@ -760,7 +751,7 @@ curl -X POST \
     "http://localhost:8082/api/dosagens" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json" \
-    -d '{"dosagem":"itaque","cultura":13,"produto":5,"praga":9}'
+    -d '{"dosagem":"ad","cultura":16,"produto":11,"praga":13}'
 
 ```
 
@@ -775,10 +766,10 @@ let headers = {
 };
 
 let body = {
-    "dosagem": "itaque",
-    "cultura": 13,
-    "produto": 5,
-    "praga": 9
+    "dosagem": "ad",
+    "cultura": 16,
+    "produto": 11,
+    "praga": 13
 }
 
 fetch(url, {
@@ -878,7 +869,7 @@ fetch(url, {
 <!-- END_e99bfbba274ce06aa71c5ce01d07f3ca -->
 
 <!-- START_0ac17170cab282c03b12f877f0a095b6 -->
-## Update the specified resource in storage.
+## Atualizar dosagem.
 
 <br><small style="padding: 1px 9px 2px;font-weight: bold;white-space: nowrap;color: #ffffff;-webkit-border-radius: 9px;-moz-border-radius: 9px;border-radius: 9px;background-color: #3a87ad;">Requires authentication</small>
 > Example request:
@@ -1036,7 +1027,7 @@ curl -X POST \
     "http://localhost:8082/api/produtos" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json" \
-    -d '{"nome":"alias"}'
+    -d '{"nome":"veniam"}'
 
 ```
 
@@ -1051,7 +1042,7 @@ let headers = {
 };
 
 let body = {
-    "nome": "alias"
+    "nome": "veniam"
 }
 
 fetch(url, {
@@ -1078,14 +1069,9 @@ fetch(url, {
 
 ```json
 {
-    "message": "Nome inválido ou muito curto"
-}
-```
-> Example response (409):
-
-```json
-{
-    "message": "Produto já cadastrado"
+    "nome": [
+        "nome deve ser único."
+    ]
 }
 ```
 
@@ -1166,7 +1152,7 @@ curl -X PUT \
     "http://localhost:8082/api/produtos/1" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json" \
-    -d '{"nome":"qui"}'
+    -d '{"nome":"beatae"}'
 
 ```
 
@@ -1181,7 +1167,7 @@ let headers = {
 };
 
 let body = {
-    "nome": "qui"
+    "nome": "beatae"
 }
 
 fetch(url, {
@@ -1194,18 +1180,16 @@ fetch(url, {
 ```
 
 
-> Example response (404):
-
-```json
-{
-    "message": "Produto não encontrado"
-}
-```
 > Example response (400):
 
 ```json
 {
-    "message": "Nome inválido ou muito curto"
+    "produto": [
+        "produto não encontrado."
+    ],
+    "nome": [
+        "nome deve ser único."
+    ]
 }
 ```
 

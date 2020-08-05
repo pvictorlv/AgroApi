@@ -26,11 +26,6 @@ class ProdutosRepository implements Repository
         return $this->model->find($id);
     }
 
-    public function ProdutoExistente(string $nome): bool
-    {
-        return $this->model->where('nome', '=', $nome)->exists();
-    }
-
     public function create(array $fields): Model
     {
         $produto = new Produto();
@@ -40,9 +35,9 @@ class ProdutosRepository implements Repository
         return $produto;
     }
 
-    public function update(Model $model, array $fields): Model
+    public function update($id, array $fields): Model
     {
-        $model->fill($fields);
+        $model = $this->getById($id);
         $model->save();
 
         return $model;

@@ -50,23 +50,21 @@ class ProdutosController extends Controller
      *  "updated_at": "2020-08-03 19:52:31"
      * }
      * @response  400 {
-     *  "message": "Nome inválido ou muito curto"
-     * }
-     * @response  409 {
-     *  "message": "Produto já cadastrado"
+     * "nome":["nome deve ser único."]
      * }
      * @return JsonResponse
      */
     public function store(Request $request): JsonResponse
     {
-        $nome = $request->get('nome');
+        $validator = validator()->make($request->all(), [
+            'nome' => 'required|unique:produtos,nome|min:3'
+        ], $this->getCustomMessages());
 
-        if (!$nome || strlen($nome) < 3)
-            return $this->badRequest('Nome inválido ou muito curto');
-
-        if ($this->repository->ProdutoExistente($nome)) {
-            return $this->conflict('Produto já existente');
+        if ($validator->fails()) {
+            return response()->json($validator->errors()->toJson(), 400);
         }
+
+        $nome = $request->get('nome');
 
         $produto = $this->repository->create(['nome' => $nome]);
 
@@ -99,11 +97,9 @@ class ProdutosController extends Controller
     /**
      * Editar Produto.
      * @bodyParam nome string required Nome do Produto, exemplo: Pesticida 1
-     * @response  404 {
-     *  "message": "Produto não encontrado"
-     * }
      * @response  400 {
-     *  "message": "Nome inválido ou muito curto"
+     * "produto":["produto não encontrado."],
+     * "nome":["nome deve ser único."]
      * }
      * @param Request $request
      * @param int $id
@@ -111,15 +107,19 @@ class ProdutosController extends Controller
      */
     public function update(Request $request, $id): JsonResponse
     {
-        $produto = $this->repository->getById($id);
-        if ($produto == null) {
-            return $this->notFound('Produto não encontrado!');
-        }
-        $nome = $request->get('nome');
-        if (!$nome || strlen($nome) < 3)
-            return $this->badRequest('Nome inválido ou muito curto');
+        $params = $request->all();
+        $params['produto'] = $id;
+        $validator = validator()->make($params, [
+            'produto' => 'required|exists:produtos,id',
+            'nome' => 'required|unique:produtos,nome|min:3'
+        ], $this->getCustomMessages());
 
-        $this->repository->update($produto, ['nome' => $nome]);
+        if ($validator->fails()) {
+            return response()->json($validator->errors()->toJson(), 400);
+        }
+
+        $nome = $request->get('nome');
+        $produto = $this->repository->update($id, ['nome' => $nome]);
 
         return response()->json($produto, 200);
     }

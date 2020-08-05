@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Repositories\CulturasRepository;
 use App\Repositories\DosagensRepository;
+use Illuminate\Contracts\Container\BindingResolutionException;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
@@ -33,10 +34,10 @@ class DosagensController extends Controller
      * @queryParam cultura int ID da cultura, exemplo: 1
      * @queryParam produto int ID do produto, exemplo: 2
      * @queryParam praga int ID da praga, exemplo: 1
-
      * @param Request $request
-     * @return JsonResponse
-     * @throws \Illuminate\Contracts\Container\BindingResolutionException
+     * @return Response
+     * @response 200
+     * @throws BindingResolutionException
      */
     public function exportPdf(Request $request): Response
     {
@@ -84,22 +85,23 @@ class DosagensController extends Controller
      * "created_at": "2020-08-05T02:54:16.000000Z",
      * "updated_at": "2020-08-05T02:54:16.000000Z"
      * }
+     *
+     * @response  400 {
+     * "praga":["praga não encontrada."],
+     * "cultura":["cultura não encontrada."],
+     * "produto":["produto não encontrada."],
+     * }
      * @param Request $request
      * @return JsonResponse
      */
     public function store(Request $request): JsonResponse
     {
-        $custom_messages = [
-            'required' => ' O atributo :attribute é obrigatório.',
-            'exists' => ':attribute não encontrado.'
-        ];
-
         $validator = validator()->make($request->all(), [
             'dosagem' => 'required|string',
             'cultura' => 'required|exists:culturas,id',
             'praga' => 'required|exists:pragas,id',
             'produto' => 'required|exists:produtos,id',
-        ], $custom_messages);
+        ], $this->getCustomMessages());
 
         if ($validator->fails()) {
             return response()->json($validator->errors()->toJson(), 400);
@@ -144,7 +146,7 @@ class DosagensController extends Controller
     }
 
     /**
-     * Update the specified resource in storage.
+     * Atualizar dosagem.
      *
      * @param Request $request
      * @param int $id
@@ -152,7 +154,20 @@ class DosagensController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $validator = validator()->make($request->all(), [
+            'dosagem' => 'required|string|exists:dosagens,id',
+            'cultura' => 'required|exists:culturas,id',
+            'praga' => 'required|exists:pragas,id',
+            'produto' => 'required|exists:produtos,id',
+        ], $this->getCustomMessages());
+
+        if ($validator->fails()) {
+            return response()->json($validator->errors()->toJson(), 400);
+        }
+
+        $dosagem = $this->repository->update($id, $validator->validated());
+
+        return response()->json($dosagem);
     }
 
     /**

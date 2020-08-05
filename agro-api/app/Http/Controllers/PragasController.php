@@ -50,23 +50,21 @@ class PragasController extends Controller
      *  "updated_at": "2020-08-03 19:52:31"
      * }
      * @response  400 {
-     *  "message": "Nome inválido ou muito curto"
-     * }
-     * @response  409 {
-     *  "message": "Praga já cadastrada"
+     * "nome":["nome deve ser único."]
      * }
      * @return JsonResponse
      */
     public function store(Request $request): JsonResponse
     {
-        $nome = $request->get('nome');
+        $validator = validator()->make($request->all(), [
+            'nome' => 'required|unique:pragas,nome|min:3'
+        ], $this->getCustomMessages());
 
-        if (!$nome || strlen($nome) < 3)
-            return $this->badRequest('Nome inválido ou muito curto');
-
-        if ($this->repository->pragaExistente($nome)) {
-            return $this->conflict('Praga já existente');
+        if ($validator->fails()) {
+            return response()->json($validator->errors()->toJson(), 400);
         }
+
+        $nome = $request->get('nome');
 
         $praga = $this->repository->create(['nome' => $nome]);
 
@@ -99,11 +97,9 @@ class PragasController extends Controller
     /**
      * Editar praga.
      * @bodyParam nome string required Nome da praga, exemplo: Erva Daninha
-     * @response  404 {
-     *  "message": "Praga não encontrada"
-     * }
      * @response  400 {
-     *  "message": "Nome inválido ou muito curto"
+     * "pultura":["praga não encontrada."],
+     * "nome":["nome deve ser único."]
      * }
      * @param Request $request
      * @param int $id
@@ -111,15 +107,18 @@ class PragasController extends Controller
      */
     public function update(Request $request, $id): JsonResponse
     {
-        $praga = $this->repository->getById($id);
-        if ($praga == null) {
-            return $this->notFound('Praga não encontrada!');
-        }
-        $nome = $request->get('nome');
-        if (!$nome || strlen($nome) < 3)
-            return $this->badRequest('Nome inválido ou muito curto');
+        $params = $request->all();
+        $params['praga'] = $id;
+        $validator = validator()->make($params, [
+            'praga' => 'required|exists:pragas,id',
+            'nome' => 'required|unique:pragas,nome|min:3'
+        ], $this->getCustomMessages());
 
-        $this->repository->update($praga, ['nome' => $nome]);
+        if ($validator->fails()) {
+            return response()->json($validator->errors()->toJson(), 400);
+        }
+
+        $praga = $this->repository->update($id, ['nome' => $params['nome']]);
 
         return response()->json($praga, 200);
     }

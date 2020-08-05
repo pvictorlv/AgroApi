@@ -28,11 +28,6 @@ class CulturasRepository implements Repository
         return $this->model->find($id);
     }
 
-    public function CulturaExistente(string $nome): bool
-    {
-        return $this->model->where('nome', '=', $nome)->exists();
-    }
-
     public function create(array $fields): Model
     {
         $cultura = new Cultura();
@@ -42,15 +37,16 @@ class CulturasRepository implements Repository
         return $cultura;
     }
 
-    public function update(Model $model, array $fields): Model
+    public function update($id, array $fields): Model
     {
+        $model = $this->getById($id);
         $model->fill($fields);
         $model->save();
 
         return $model;
     }
 
-    public function delete(Model $model):void
+    public function delete(Model $model): void
     {
         $model->delete();
     }

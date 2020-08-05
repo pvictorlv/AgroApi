@@ -2,7 +2,7 @@
     "variables": [],
     "info": {
         "name": "Laravel API",
-        "_postman_id": "6d79dd7b-1f4a-42f4-b987-427660bfe32e",
+        "_postman_id": "da27987a-f45e-4fef-bdfd-5de69dcfd8f2",
         "description": "",
         "schema": "https:\/\/schema.getpostman.com\/json\/collection\/v2.0.0\/collection.json"
     },
@@ -33,7 +33,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\n    \"email\": \"a\",\n    \"senha\": \"est\"\n}"
+                            "raw": "{\n    \"email\": \"sequi\",\n    \"senha\": \"consequatur\"\n}"
                         },
                         "description": "",
                         "response": []
@@ -89,7 +89,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\n    \"nome\": \"voluptatibus\",\n    \"email\": \"iure\",\n    \"senha\": \"molestias\"\n}"
+                            "raw": "{\n    \"nome\": \"aut\",\n    \"email\": \"dolores\",\n    \"senha\": \"alias\"\n}"
                         },
                         "description": "",
                         "response": []
@@ -207,7 +207,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\n    \"nome\": \"exercitationem\"\n}"
+                            "raw": "{\n    \"nome\": \"ut\"\n}"
                         },
                         "description": "",
                         "response": []
@@ -263,7 +263,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\n    \"nome\": \"velit\"\n}"
+                            "raw": "{\n    \"nome\": \"fugiat\"\n}"
                         },
                         "description": "",
                         "response": []
@@ -313,19 +313,19 @@
                             "query": [
                                 {
                                     "key": "cultura",
-                                    "value": "facere",
+                                    "value": "nihil",
                                     "description": "int ID da cultura, exemplo: 1",
                                     "disabled": false
                                 },
                                 {
                                     "key": "produto",
-                                    "value": "qui",
+                                    "value": "hic",
                                     "description": "int ID do produto, exemplo: 2",
                                     "disabled": false
                                 },
                                 {
                                     "key": "praga",
-                                    "value": "qui",
+                                    "value": "non",
                                     "description": "int ID da praga, exemplo: 1",
                                     "disabled": false
                                 }
@@ -360,19 +360,19 @@
                             "query": [
                                 {
                                     "key": "cultura",
-                                    "value": "debitis",
+                                    "value": "voluptatem",
                                     "description": "int ID da cultura, exemplo: 1",
                                     "disabled": false
                                 },
                                 {
                                     "key": "produto",
-                                    "value": "eum",
+                                    "value": "quia",
                                     "description": "int ID do produto, exemplo: 2",
                                     "disabled": false
                                 },
                                 {
                                     "key": "praga",
-                                    "value": "sint",
+                                    "value": "et",
                                     "description": "int ID da praga, exemplo: 1",
                                     "disabled": false
                                 }
@@ -419,7 +419,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\n    \"dosagem\": \"itaque\",\n    \"cultura\": 13,\n    \"produto\": 5,\n    \"praga\": 9\n}"
+                            "raw": "{\n    \"dosagem\": \"ad\",\n    \"cultura\": 16,\n    \"produto\": 11,\n    \"praga\": 13\n}"
                         },
                         "description": "",
                         "response": []
@@ -454,7 +454,7 @@
                     }
                 },
                 {
-                    "name": "Update the specified resource in storage.",
+                    "name": "Atualizar dosagem.",
                     "request": {
                         "url": {
                             "protocol": "http",
@@ -565,7 +565,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\n    \"nome\": \"alias\"\n}"
+                            "raw": "{\n    \"nome\": \"veniam\"\n}"
                         },
                         "description": "",
                         "response": []
@@ -621,7 +621,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\n    \"nome\": \"qui\"\n}"
+                            "raw": "{\n    \"nome\": \"beatae\"\n}"
                         },
                         "description": "",
                         "response": []

@@ -13,7 +13,7 @@ interface Repository
     public function getById($id): ?Model;
 
     public function create(array $fields): Model;
-    public function update(Model $model, array $fields): Model;
+    public function update($id, array $fields): Model;
 
     public function delete(Model $model) : void;
 }
